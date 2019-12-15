@@ -30,12 +30,19 @@ extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? ItemCell {
-            let item = items[indexPath.row]
-            cell.updateViews(item: item)
-            return cell
-        } else {
-            return ItemCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath)
+            as? ItemCell else { return ItemCell() }
+        let item = items[indexPath.row]
+        cell.updateViews(item: item)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCell else { return }
+        let item = items[indexPath.row]
+        if let itemVC = storyboard?.instantiateViewController(withIdentifier: "ItemVC") as? ItemVC {
+            itemVC.initItem(item: item)
+            present(itemVC, animated: true, completion: nil)
         }
     }
 }
