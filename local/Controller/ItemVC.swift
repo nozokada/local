@@ -16,8 +16,8 @@ class ItemVC: UIViewController {
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     
     var itemImage: UIImage?
-    var itemTitle: String?
-    var itemPrice: String?
+    var itemTitle: String = ""
+    var itemPrice: String = ""
     var itemDescription: String?
     
     override func viewDidLoad() {
@@ -25,8 +25,11 @@ class ItemVC: UIViewController {
         
         itemImageView.image = itemImage
         itemTitleLabel.text = itemTitle
-        itemPriceLabel.text = itemPrice
+        itemPriceLabel.text = " \(itemPrice) "
         itemDescriptionLabel.text = itemDescription
+        
+        itemPriceLabel.layer.cornerRadius = 5
+        itemPriceLabel.clipsToBounds = true
     }
     
     func initItem(item: Item) {

@@ -14,9 +14,10 @@ class Item {
     private(set) public var description: String?
     private(set) public var imageName: String
     
-    init(title: String, price: String, imageName: String) {
+    init(title: String, price: String, imageName: String, description: String?) {
         self.title = title
         self.price = price
         self.imageName = imageName
+        self.description = description
     }
 }
