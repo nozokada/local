@@ -13,6 +13,8 @@ class BrowseVC: UIViewController {
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     
     private(set) public var items = [Item]()
+    
+    let cellHorizontalPaddingSize: CGFloat = 6
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,7 @@ class BrowseVC: UIViewController {
     }
 }
 
-extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
@@ -44,5 +46,14 @@ extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource {
             itemVC.initItem(item: item)
             present(itemVC, animated: true, completion: nil)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = collectionView.bounds.width / 2 - cellHorizontalPaddingSize * 2
+        return CGSize(width: cellWidth, height: cellWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: cellHorizontalPaddingSize, bottom: 0, right: cellHorizontalPaddingSize)
     }
 }

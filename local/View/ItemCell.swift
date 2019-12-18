@@ -12,7 +12,6 @@ import UIKit
 class ItemCell: UICollectionViewCell {
     
     @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemTitleLabel: UILabel!
     @IBOutlet weak var itemPriceLabel: UILabel!
     
     let cornerRadius: CGFloat = 5
@@ -33,7 +32,6 @@ class ItemCell: UICollectionViewCell {
     
     func updateViews(item: Item) {
         itemImageView.image = UIImage(named: item.imageName)
-        itemTitleLabel.text = item.title
         itemPriceLabel.text = " \(item.price) "
     }
 }
