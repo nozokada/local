@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ProfileVC.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/12/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FirstViewController: UIViewController {
+class ProfileVC: UIViewController {
 
     @IBAction func signOutButtonTapped(_ sender: Any) {
         do {
