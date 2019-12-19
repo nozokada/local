@@ -193,27 +193,18 @@
             </objects>
             <point key="canvasLocation" x="1494" y="-994"/>
         </scene>
-        <!--Action-->
+        <!--Profile-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="ProfileVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAd-4K-IAP" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
-                                <rect key="frame" x="132" y="428" width="150" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="7AQ-Aq-Akd"/>
-                                    <constraint firstAttribute="height" constant="40" id="uEH-Tz-lis"/>
-                                </constraints>
-                                <state key="normal" title="Post an Item"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4z-9M-59z" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
-                                <rect key="frame" x="132" y="500" width="150" height="40"/>
+                                <rect key="frame" x="60" y="428" width="294" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="I2I-5f-u34"/>
-                                    <constraint firstAttribute="width" constant="150" id="P2c-AA-7ze"/>
                                 </constraints>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
@@ -223,18 +214,47 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="A4z-9M-59z" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="4Av-yt-aId"/>
-                            <constraint firstItem="A4z-9M-59z" firstAttribute="top" secondItem="LAd-4K-IAP" secondAttribute="bottom" constant="32" id="BgC-CE-ITM"/>
-                            <constraint firstItem="LAd-4K-IAP" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="K6L-4s-H2M"/>
-                            <constraint firstItem="LAd-4K-IAP" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="e6C-MX-Ftm"/>
+                            <constraint firstItem="A4z-9M-59z" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="60" id="eh1-NB-KmO"/>
+                            <constraint firstItem="A4z-9M-59z" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="wcZ-v6-a8q"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="A4z-9M-59z" secondAttribute="trailing" constant="60" id="ygS-Iz-pZ9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Action" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="second" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--PostVC-->
+        <scene sceneID="6K0-x0-QM8">
+            <objects>
+                <viewController id="I5m-s7-Qsl" customClass="PostVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zo6-dO-Yrf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ys-FK-PjF" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                                <rect key="frame" x="132" y="428" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3ms-6x-IfH"/>
+                                    <constraint firstAttribute="width" constant="150" id="sQc-0Z-E3E"/>
+                                </constraints>
+                                <state key="normal" title="Post an Item"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1Ys-FK-PjF" firstAttribute="centerX" secondItem="zo6-dO-Yrf" secondAttribute="centerX" id="REm-os-ll4"/>
+                            <constraint firstItem="1Ys-FK-PjF" firstAttribute="centerY" secondItem="zo6-dO-Yrf" secondAttribute="centerY" id="zd9-eo-eyL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nVs-Ib-WLg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QlZ-ba-WlC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEf-cU-o0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2402.898550724638" y="-320.08928571428572"/>
         </scene>
         <!--Browse-->
         <scene sceneID="wg7-f3-ORb">
@@ -409,6 +429,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="k4q-VX-5Wh"/>
+                        <segue destination="Ad8-mm-U1y" kind="relationship" relationship="viewControllers" id="glz-eD-jmr"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="Htm-PM-Aoh"/>
                     </connections>
                 </tabBarController>
@@ -433,6 +454,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcf-ba-YQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749" y="-994"/>
+        </scene>
+        <!--Post-->
+        <scene sceneID="WIT-zT-Gyq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ad8-mm-U1y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Post" image="first" id="fbc-1e-BzI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W0n-qK-dhu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="I5m-s7-Qsl" kind="relationship" relationship="rootViewController" id="8PM-l1-ILh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8SF-Qz-F71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492.753623188406" y="-320.08928571428572"/>
         </scene>
     </scenes>
     <resources>

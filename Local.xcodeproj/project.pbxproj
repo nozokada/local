@@ -10,6 +10,7 @@
 		159F807E24AF380A2539542B /* Pods_local.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7322ACD7C6319737157C5913 /* Pods_local.framework */; };
 		6A4B0D06A343C349FA79EFDC /* Pods_local_localUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13DE932237402B6DD6982BA /* Pods_local_localUITests.framework */; };
 		9985CEF5BC865016ECC03CAC /* Pods_localTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F7870BC929B7F5DE256ABC /* Pods_localTests.framework */; };
+		D4383C7F23AB4CC4007E8900 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4383C7E23AB4CC4007E8900 /* PostVC.swift */; };
 		D43ABC7623A5FB720018B59B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43ABC7523A5FB710018B59B /* Item.swift */; };
 		D43ABC7823A601CE0018B59B /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43ABC7723A601CE0018B59B /* DataService.swift */; };
 		D43ABC7A23A607FF0018B59B /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43ABC7923A607FF0018B59B /* ItemCell.swift */; };
@@ -21,7 +22,7 @@
 		D4B2284823A37B4F003AE98B /* AppNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B2284723A37B4E003AE98B /* AppNavigationBar.swift */; };
 		D4FDDD1123A363510053AE79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FDDD1023A363510053AE79 /* AppDelegate.swift */; };
 		D4FDDD1323A363510053AE79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FDDD1223A363510053AE79 /* SceneDelegate.swift */; };
-		D4FDDD1523A363510053AE79 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FDDD1423A363510053AE79 /* FirstViewController.swift */; };
+		D4FDDD1523A363510053AE79 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FDDD1423A363510053AE79 /* ProfileVC.swift */; };
 		D4FDDD1723A363510053AE79 /* BrowseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FDDD1623A363510053AE79 /* BrowseVC.swift */; };
 		D4FDDD1A23A363510053AE79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4FDDD1823A363510053AE79 /* Main.storyboard */; };
 		D4FDDD1C23A363510053AE79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4FDDD1B23A363510053AE79 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		A6F7870BC929B7F5DE256ABC /* Pods_localTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_localTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E55B9176E23948FB081278 /* Pods-local-localUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-local-localUITests.debug.xcconfig"; path = "Target Support Files/Pods-local-localUITests/Pods-local-localUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C13DE932237402B6DD6982BA /* Pods_local_localUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_local_localUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4383C7E23AB4CC4007E8900 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		D43ABC7523A5FB710018B59B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D43ABC7723A601CE0018B59B /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		D43ABC7923A607FF0018B59B /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
@@ -68,7 +70,7 @@
 		D4FDDD0D23A363510053AE79 /* Local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Local.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FDDD1023A363510053AE79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4FDDD1223A363510053AE79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D4FDDD1423A363510053AE79 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		D4FDDD1423A363510053AE79 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D4FDDD1623A363510053AE79 /* BrowseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseVC.swift; sourceTree = "<group>"; };
 		D4FDDD1923A363510053AE79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4FDDD1B23A363510053AE79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,9 +130,10 @@
 			children = (
 				D4B2283D23A36896003AE98B /* LoginVC.swift */,
 				D4B2284523A37856003AE98B /* CreateAccountVC.swift */,
-				D4FDDD1423A363510053AE79 /* FirstViewController.swift */,
 				D4FDDD1623A363510053AE79 /* BrowseVC.swift */,
+				D4FDDD1423A363510053AE79 /* ProfileVC.swift */,
 				D43ABC7B23A62B540018B59B /* ItemVC.swift */,
+				D4383C7E23AB4CC4007E8900 /* PostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -469,10 +472,11 @@
 				D4B2284423A36BD9003AE98B /* AppNavigationButton.swift in Sources */,
 				D43ABC7C23A62B540018B59B /* ItemVC.swift in Sources */,
 				D4B2284823A37B4F003AE98B /* AppNavigationBar.swift in Sources */,
+				D4383C7F23AB4CC4007E8900 /* PostVC.swift in Sources */,
 				D4FDDD1723A363510053AE79 /* BrowseVC.swift in Sources */,
 				D4B2284623A37856003AE98B /* CreateAccountVC.swift in Sources */,
 				D43ABC7823A601CE0018B59B /* DataService.swift in Sources */,
-				D4FDDD1523A363510053AE79 /* FirstViewController.swift in Sources */,
+				D4FDDD1523A363510053AE79 /* ProfileVC.swift in Sources */,
 				D4FDDD1123A363510053AE79 /* AppDelegate.swift in Sources */,
 				D43ABC7A23A607FF0018B59B /* ItemCell.swift in Sources */,
 				D4FDDD1323A363510053AE79 /* SceneDelegate.swift in Sources */,
