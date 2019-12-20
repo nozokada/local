@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="-994.41964285714278"/>
         </scene>
-        <!--Create AccountVC-->
+        <!--Create Your Account-->
         <scene sceneID="pYI-lu-lVX">
             <objects>
                 <viewController id="JGu-CK-sro" customClass="CreateAccountVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,7 +175,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tCN-PU-Kiu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tQv-nG-eju"/>
+                    <navigationItem key="navigationItem" title="Create Your Account" id="tQv-nG-eju"/>
                     <connections>
                         <outlet property="cancelButton" destination="wzO-Mg-Fs8" id="P7b-3i-MiQ"/>
                         <outlet property="createAccountButton" destination="pn2-Hp-2oX" id="LeI-0W-KhY"/>
