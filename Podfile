@@ -8,6 +8,7 @@ target 'local' do
   # Pods for local
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   target 'localTests' do
     inherit! :search_paths

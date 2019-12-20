@@ -18,3 +18,5 @@ let CREATE_ACCOUNT_VIEW_TITLE = "Create your account"
 let USERS_REF = "users"
 let USERNAME = "username"
 let CREATED_TIMESTAMP = "createdTimestamp"
+
+let IMAGES_REF = "images"
