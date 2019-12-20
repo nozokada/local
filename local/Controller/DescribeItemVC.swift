@@ -17,4 +17,6 @@ class DescribeItemVC: UIViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func nextButtonTapped(_ sender: Any) {
+    }
 }

@@ -338,6 +338,7 @@
                                 </constraints>
                                 <state key="normal" title="Next"/>
                                 <connections>
+                                    <action selector="nextButtonTapped:" destination="6gZ-S1-G5n" eventType="touchUpInside" id="Jhh-DD-P6r"/>
                                     <action selector="nextButtonTapped:" destination="I5m-s7-Qsl" eventType="touchUpInside" id="mgY-25-0MX"/>
                                     <segue destination="SL1-x0-1ya" kind="show" id="ll1-sV-2yb"/>
                                 </connections>
@@ -391,7 +392,7 @@
         <!--Review Your Post-->
         <scene sceneID="CPO-Uk-Gz1">
             <objects>
-                <viewController id="SL1-x0-1ya" sceneMemberID="viewController">
+                <viewController id="SL1-x0-1ya" customClass="ReviewPostVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tR8-GF-IMH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,6 +424,7 @@
                                 <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="I5m-s7-Qsl" eventType="touchUpInside" id="HkJ-yl-4XP"/>
+                                    <action selector="postButtonTapped:" destination="SL1-x0-1ya" eventType="touchUpInside" id="38b-JV-bqA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -444,6 +446,11 @@
                         <viewLayoutGuide key="safeArea" id="BsW-i9-5BV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Review Your Post" id="sOM-Se-WtK"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="PDy-lm-goP" id="CA9-zP-yb4"/>
+                        <outlet property="selectedImageView" destination="Adh-CP-NUm" id="uhm-s1-TYG"/>
+                        <outlet property="titleLabel" destination="8q8-xK-pqm" id="Mae-AZ-ZKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvw-0g-7cl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
