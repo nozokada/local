@@ -226,7 +226,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--PostVC-->
+        <!--Post an Item-->
         <scene sceneID="6K0-x0-QM8">
             <objects>
                 <viewController id="I5m-s7-Qsl" customClass="PostVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
@@ -234,27 +234,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ys-FK-PjF" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
-                                <rect key="frame" x="132" y="428" width="150" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HV0-lp-WyT">
+                                <rect key="frame" x="20" y="202" width="374" height="374"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="3ms-6x-IfH"/>
-                                    <constraint firstAttribute="width" constant="150" id="sQc-0Z-E3E"/>
+                                    <constraint firstAttribute="width" secondItem="HV0-lp-WyT" secondAttribute="height" multiplier="1:1" id="VCL-qk-838"/>
                                 </constraints>
-                                <state key="normal" title="Post an Item"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vOQ-p4-Fcw">
+                                <rect key="frame" x="20" y="152" width="374" height="30"/>
+                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="iET-3I-rkJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="oyF-yt-See"/>
+                                </constraints>
+                                <color key="textColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titleTextFieldEditingDidEnd:" destination="I5m-s7-Qsl" eventType="editingDidEnd" id="z0n-UJ-Gf2"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6B-P4-gZf">
+                                <rect key="frame" x="20" y="120" width="34" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iui-9p-43x" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                                <rect key="frame" x="60" y="584" width="294" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Pcx-Ec-XnL"/>
+                                </constraints>
+                                <state key="normal" title="Choose Image"/>
+                                <connections>
+                                    <action selector="chooseImageButtonTapped:" destination="I5m-s7-Qsl" eventType="touchUpInside" id="WyO-OO-Pxq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1V-Ff-uI0" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                                <rect key="frame" x="20" y="761" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="thM-Qg-OQN"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1Ys-FK-PjF" firstAttribute="centerX" secondItem="zo6-dO-Yrf" secondAttribute="centerX" id="REm-os-ll4"/>
-                            <constraint firstItem="1Ys-FK-PjF" firstAttribute="centerY" secondItem="zo6-dO-Yrf" secondAttribute="centerY" id="zd9-eo-eyL"/>
+                            <constraint firstItem="iui-9p-43x" firstAttribute="leading" secondItem="nVs-Ib-WLg" secondAttribute="leading" constant="60" id="3xR-jv-Mqg"/>
+                            <constraint firstItem="nVs-Ib-WLg" firstAttribute="trailing" secondItem="vOQ-p4-Fcw" secondAttribute="trailing" constant="20" id="BDw-ct-3vd"/>
+                            <constraint firstItem="nVs-Ib-WLg" firstAttribute="trailing" secondItem="W1V-Ff-uI0" secondAttribute="trailing" constant="20" id="BVN-BH-HwW"/>
+                            <constraint firstItem="W1V-Ff-uI0" firstAttribute="leading" secondItem="nVs-Ib-WLg" secondAttribute="leading" constant="20" id="CNf-fX-qqA"/>
+                            <constraint firstItem="vOQ-p4-Fcw" firstAttribute="top" secondItem="u6B-P4-gZf" secondAttribute="bottom" constant="8" id="K6G-W2-tKg"/>
+                            <constraint firstItem="iui-9p-43x" firstAttribute="top" secondItem="HV0-lp-WyT" secondAttribute="bottom" constant="8" id="Nav-Ha-cCx"/>
+                            <constraint firstItem="nVs-Ib-WLg" firstAttribute="trailing" secondItem="HV0-lp-WyT" secondAttribute="trailing" constant="20" id="OLB-YV-Eka"/>
+                            <constraint firstItem="nVs-Ib-WLg" firstAttribute="trailing" secondItem="iui-9p-43x" secondAttribute="trailing" constant="60" id="QHf-pJ-e1h"/>
+                            <constraint firstItem="nVs-Ib-WLg" firstAttribute="bottom" secondItem="W1V-Ff-uI0" secondAttribute="bottom" constant="12" id="RjU-VQ-2Wq"/>
+                            <constraint firstItem="u6B-P4-gZf" firstAttribute="top" secondItem="nVs-Ib-WLg" secondAttribute="top" constant="32" id="Whb-dV-UR5"/>
+                            <constraint firstItem="HV0-lp-WyT" firstAttribute="top" secondItem="vOQ-p4-Fcw" secondAttribute="bottom" constant="20" id="ZFK-ZW-blT"/>
+                            <constraint firstItem="vOQ-p4-Fcw" firstAttribute="leading" secondItem="nVs-Ib-WLg" secondAttribute="leading" constant="20" id="efH-oF-hf6"/>
+                            <constraint firstItem="u6B-P4-gZf" firstAttribute="leading" secondItem="nVs-Ib-WLg" secondAttribute="leading" constant="20" id="gCB-6T-Le4"/>
+                            <constraint firstItem="HV0-lp-WyT" firstAttribute="leading" secondItem="nVs-Ib-WLg" secondAttribute="leading" constant="20" id="rec-Ev-545"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nVs-Ib-WLg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QlZ-ba-WlC"/>
+                    <navigationItem key="navigationItem" title="Post an Item" id="QlZ-ba-WlC"/>
+                    <connections>
+                        <outlet property="nextButton" destination="W1V-Ff-uI0" id="9bA-Za-KOT"/>
+                        <outlet property="selectedImageView" destination="HV0-lp-WyT" id="fFI-lA-s2j"/>
+                        <outlet property="titleTextField" destination="vOQ-p4-Fcw" id="QE0-kW-HP8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEf-cU-o0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2402.898550724638" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="2269.5652173913045" y="-320.08928571428572"/>
         </scene>
         <!--Browse-->
         <scene sceneID="wg7-f3-ORb">
@@ -458,10 +511,11 @@
         <!--Post-->
         <scene sceneID="WIT-zT-Gyq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8SF-Qz-F71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ad8-mm-U1y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="first" id="fbc-1e-BzI"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W0n-qK-dhu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W0n-qK-dhu" customClass="AppNavigationBar" customModule="Local" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -470,7 +524,6 @@
                         <segue destination="I5m-s7-Qsl" kind="relationship" relationship="rootViewController" id="8PM-l1-ILh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8SF-Qz-F71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492.753623188406" y="-320.08928571428572"/>
         </scene>
