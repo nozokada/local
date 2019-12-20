@@ -1,5 +1,5 @@
 //
-//  PostVC.swift
+//  PostItemVC.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/18/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostVC: UIViewController, UINavigationControllerDelegate {
+class PostItemVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -61,7 +61,7 @@ class PostVC: UIViewController, UINavigationControllerDelegate {
     }
 }
 
-extension PostVC: UIImagePickerControllerDelegate {
+extension PostItemVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         selectedImageView.image = selectedImage

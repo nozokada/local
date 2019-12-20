@@ -224,7 +224,7 @@
         <!--Post an Item-->
         <scene sceneID="6K0-x0-QM8">
             <objects>
-                <viewController storyboardIdentifier="PostVC" id="I5m-s7-Qsl" customClass="PostVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostVC" id="I5m-s7-Qsl" customClass="PostItemVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zo6-dO-Yrf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -310,7 +310,7 @@
         <!--Describe Your Item-->
         <scene sceneID="O4W-mM-2Hr">
             <objects>
-                <viewController storyboardIdentifier="DescribeVC" id="6gZ-S1-G5n" customClass="DescribeVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DescribeVC" id="6gZ-S1-G5n" customClass="DescribeItemVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2OF-9W-DUN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,7 +388,7 @@
             </objects>
             <point key="canvasLocation" x="2966.666666666667" y="-320.08928571428572"/>
         </scene>
-        <!--Review Your Item-->
+        <!--Review Your Post-->
         <scene sceneID="CPO-Uk-Gz1">
             <objects>
                 <viewController id="SL1-x0-1ya" sceneMemberID="viewController">
@@ -443,7 +443,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BsW-i9-5BV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Review Your Item" id="sOM-Se-WtK"/>
+                    <navigationItem key="navigationItem" title="Review Your Post" id="sOM-Se-WtK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvw-0g-7cl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -651,7 +651,6 @@
         <!--Post-->
         <scene sceneID="WIT-zT-Gyq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8SF-Qz-F71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ad8-mm-U1y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="first" id="fbc-1e-BzI"/>
                     <toolbarItems/>
@@ -664,6 +663,7 @@
                         <segue destination="I5m-s7-Qsl" kind="relationship" relationship="rootViewController" id="8PM-l1-ILh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8SF-Qz-F71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492.753623188406" y="-320.08928571428572"/>
         </scene>

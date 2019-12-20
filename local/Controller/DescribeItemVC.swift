@@ -1,5 +1,5 @@
 //
-//  DescribeVC.swift
+//  DescribeItemVC.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/19/19.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class DescribeVC: UIViewController {
+class DescribeItemVC: UIViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var priceLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
 }
