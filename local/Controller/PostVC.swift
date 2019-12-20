@@ -56,6 +56,9 @@ class PostVC: UIViewController, UINavigationControllerDelegate {
             disableNextButton()
         }
     }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+    }
 }
 
 extension PostVC: UIImagePickerControllerDelegate {
