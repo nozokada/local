@@ -15,14 +15,13 @@ class ItemVC: UIViewController {
     @IBOutlet weak var itemPriceLabel: UILabel!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     
-    var itemImage: UIImage?
+    var itemImage: UIImage!
     var itemTitle: String = ""
     var itemPrice: String = ""
-    var itemDescription: String?
+    var itemDescription: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         itemImageView.image = itemImage
         itemTitleLabel.text = itemTitle
         itemPriceLabel.text = " \(itemPrice) "

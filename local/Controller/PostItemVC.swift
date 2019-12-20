@@ -57,7 +57,10 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    @IBAction func nextButtonTapped(_ sender: Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let describeItemVC = segue.destination as? DescribeItemVC {
+            describeItemVC.initData(image: selectedImageView.image!, title: titleTextField.text!)
+        }
     }
 }
 

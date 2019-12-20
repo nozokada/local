@@ -229,7 +229,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HV0-lp-WyT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HV0-lp-WyT">
                                 <rect key="frame" x="20" y="202" width="374" height="374"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -271,7 +271,6 @@
                                 </constraints>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="I5m-s7-Qsl" eventType="touchUpInside" id="YfG-Gd-tIU"/>
                                     <segue destination="6gZ-S1-G5n" kind="show" id="Ri0-Je-13y"/>
                                 </connections>
                             </button>
@@ -338,8 +337,6 @@
                                 </constraints>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="6gZ-S1-G5n" eventType="touchUpInside" id="Jhh-DD-P6r"/>
-                                    <action selector="nextButtonTapped:" destination="I5m-s7-Qsl" eventType="touchUpInside" id="mgY-25-0MX"/>
                                     <segue destination="SL1-x0-1ya" kind="show" id="ll1-sV-2yb"/>
                                 </connections>
                             </button>
@@ -355,6 +352,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="32"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
+                                    <action selector="priceLabelEditingDidEnd:" destination="6gZ-S1-G5n" eventType="editingDidEnd" id="t5G-dr-DiI"/>
                                     <action selector="titleTextFieldEditingDidEnd:" destination="I5m-s7-Qsl" eventType="editingDidEnd" id="bLr-4x-s26"/>
                                 </connections>
                             </textField>
@@ -382,6 +380,7 @@
                     <navigationItem key="navigationItem" title="Describe Your Item" id="j8G-ei-Ufd"/>
                     <connections>
                         <outlet property="descriptionTextView" destination="Q8M-6g-XhG" id="TaH-u9-Bgc"/>
+                        <outlet property="nextButton" destination="upg-Zd-JFZ" id="uxH-Df-n61"/>
                         <outlet property="priceLabel" destination="KdX-ae-E9M" id="Xoz-iE-hUC"/>
                     </connections>
                 </viewController>
@@ -397,9 +396,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Adh-CP-NUm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Adh-CP-NUm">
                                 <rect key="frame" x="0.0" y="88" width="414" height="414"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Adh-CP-NUm" secondAttribute="height" multiplier="1:1" id="xDo-8b-Mxh"/>
                                 </constraints>
@@ -427,9 +425,17 @@
                                     <action selector="postButtonTapped:" destination="SL1-x0-1ya" eventType="touchUpInside" id="38b-JV-bqA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $35 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTE-g2-JHz">
+                                <rect key="frame" x="20" y="440" width="75" height="44"/>
+                                <color key="backgroundColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="8q8-xK-pqm" firstAttribute="top" secondItem="RTE-g2-JHz" secondAttribute="bottom" constant="38" id="2g1-Xc-dYD"/>
                             <constraint firstItem="8q8-xK-pqm" firstAttribute="top" secondItem="Adh-CP-NUm" secondAttribute="bottom" constant="20" id="2s2-nm-Cv4"/>
                             <constraint firstItem="PDy-lm-goP" firstAttribute="leading" secondItem="BsW-i9-5BV" secondAttribute="leading" constant="20" id="6EN-fI-tw1"/>
                             <constraint firstItem="Adh-CP-NUm" firstAttribute="top" secondItem="BsW-i9-5BV" secondAttribute="top" id="838-jg-0dU"/>
@@ -442,12 +448,14 @@
                             <constraint firstItem="PDy-lm-goP" firstAttribute="top" secondItem="8q8-xK-pqm" secondAttribute="bottom" constant="8" id="Sgd-DY-euo"/>
                             <constraint firstItem="BsW-i9-5BV" firstAttribute="bottom" secondItem="Ah2-Sk-aiT" secondAttribute="bottom" constant="12" id="VUI-X8-Vcd"/>
                             <constraint firstItem="Ah2-Sk-aiT" firstAttribute="leading" secondItem="BsW-i9-5BV" secondAttribute="leading" constant="20" id="aRz-b2-FD3"/>
+                            <constraint firstItem="RTE-g2-JHz" firstAttribute="leading" secondItem="BsW-i9-5BV" secondAttribute="leading" constant="20" id="yTR-hX-1GJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BsW-i9-5BV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Review Your Post" id="sOM-Se-WtK"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="PDy-lm-goP" id="CA9-zP-yb4"/>
+                        <outlet property="priceLabel" destination="RTE-g2-JHz" id="VxC-lv-slG"/>
                         <outlet property="selectedImageView" destination="Adh-CP-NUm" id="uhm-s1-TYG"/>
                         <outlet property="titleLabel" destination="8q8-xK-pqm" id="Mae-AZ-ZKh"/>
                     </connections>

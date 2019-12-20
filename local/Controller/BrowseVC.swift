@@ -18,10 +18,8 @@ class BrowseVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         itemsCollectionView.dataSource = self
         itemsCollectionView.delegate = self
-        
         items = DataService.shared.getItems()
     }
 }
