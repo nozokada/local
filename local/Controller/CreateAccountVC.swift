@@ -42,17 +42,17 @@ class CreateAccountVC: UIViewController {
                 }
             })
 
-            Firestore.firestore().collection(USERS_REF).document(user.uid)
-                .setData([
+            Firestore.firestore().collection(USERS_REF).document(user.uid).setData([
                 USERNAME : username,
                 CREATED_TIMESTAMP : FieldValue.serverTimestamp()
-                ], completion: { (error) in
-                    if let error = error {
-                        debugPrint(error.localizedDescription)
-                    } else {
-                        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-                    }
-            })
+            ]) { error in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                } else {
+                    debugPrint("Account was successfully created")
+                    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                }
+            }
         }
     }
     

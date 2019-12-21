@@ -19,4 +19,11 @@ let USERS_REF = "users"
 let USERNAME = "username"
 let CREATED_TIMESTAMP = "createdTimestamp"
 
+let ITEMS_REF = "items"
+let TITLE = "title"
+let DESCRIPTION = "description"
+let PRICE = "price"
+let IMAGE_DOWNLOAD_URL = "imageDownloadURL"
+let CREATED_BY = "createdBy"
+
 let IMAGES_REF = "images"

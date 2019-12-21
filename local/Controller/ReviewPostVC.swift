@@ -54,13 +54,28 @@ class ReviewPostVC: UIViewController {
                     debugPrint(error!.localizedDescription)
                     return
                 }
-                self.uploadItem(imageURL: downloadURL.absoluteString)
+                self.uploadItem(id: id, imageURL: downloadURL.absoluteString)
             }
         }
     }
     
-    func uploadItem(imageURL: String) {
-        
+    func uploadItem(id: String, imageURL: String) {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        Firestore.firestore().collection(ITEMS_REF).document(id).setData([
+            TITLE: itemTitle,
+            DESCRIPTION: itemDescription,
+            PRICE: itemPrice,
+            IMAGE_DOWNLOAD_URL: imageURL,
+            CREATED_BY : userId,
+            CREATED_TIMESTAMP : FieldValue.serverTimestamp()
+        ]) { error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            } else {
+                debugPrint("Item was successfully uploaded")
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func postButtonTapped(_ sender: Any) {
