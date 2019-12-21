@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class DataService {
     static let shared = DataService()
@@ -20,6 +21,16 @@ class DataService {
     ]
     
     func getItems() -> [Item] {
+        Firestore.firestore().collection(ITEMS_REF).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+        
         return items
     }
 }
