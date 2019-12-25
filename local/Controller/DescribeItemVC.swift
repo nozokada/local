@@ -12,7 +12,7 @@ class DescribeItemVC: UIViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var priceLabel: UITextField!
-    @IBOutlet weak var nextButton: AppNavigationButton!
+    @IBOutlet weak var nextButton: MainButton!
     
     var itemImage: UIImage!
     var itemTitle: String!

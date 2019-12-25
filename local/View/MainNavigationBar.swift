@@ -1,5 +1,5 @@
 //
-//  AppNavigationBar.swift
+//  MainNavigationBar.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/13/19.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class AppNavigationBar: UINavigationBar {
+class MainNavigationBar: UINavigationBar {
 
     let fontName = MAIN_FONT_MEDIUM
     let fontSize: CGFloat = 20

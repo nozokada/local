@@ -11,12 +11,11 @@ import Firebase
 
 class CreateAccountVC: UIViewController {
 
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var createAccountButton: AppNavigationButton!
-    @IBOutlet weak var cancelButton: AppNavigationButton!
+    @IBOutlet weak var createAccountButton: MainButton!
+    @IBOutlet weak var cancelButton: MainButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

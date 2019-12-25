@@ -9,6 +9,7 @@
 import UIKit
 
 class Item {
+    
     private(set) public var title: String
     private(set) public var price: String
     private(set) public var description: String

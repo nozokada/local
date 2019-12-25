@@ -10,8 +10,8 @@ import Foundation
 import Firebase
 
 class DataService {
-    static let shared = DataService()
     
+    static let shared = DataService()
     private let items = [
         Item(title: "Kaytee Silent Spinner 10-inch Exercise Wheel", price: "$5", imageName: "hamster_wheel.jpg", description: ""),
         Item(title: "Splatoon 2 for Nintendo Switch", price: "$35", imageName: "splatoon_2.jpg", description: "I just bought it last month and but no longer needed. Working perfectly. Like new condition."),

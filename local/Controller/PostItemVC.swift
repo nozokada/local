@@ -12,7 +12,7 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var nextButton: AppNavigationButton!
+    @IBOutlet weak var nextButton: MainButton!
     
     var imagePicker = UIImagePickerController()
 

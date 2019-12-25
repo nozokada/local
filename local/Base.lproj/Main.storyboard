@@ -34,7 +34,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZB-Sg-exf" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZB-Sg-exf" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="132" y="508" width="150" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Lh1-ua-f4X"/>
@@ -51,7 +51,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKs-Y2-jfb" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKs-Y2-jfb" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="132" y="589" width="150" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="4W5-gA-4fN"/>
@@ -133,7 +133,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pn2-Hp-2oX" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pn2-Hp-2oX" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="132" y="370" width="150" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5Sa-S9-dfe"/>
@@ -144,7 +144,7 @@
                                     <action selector="createAccountButtonTapped:" destination="JGu-CK-sro" eventType="touchUpInside" id="gxd-DE-Lzr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzO-Mg-Fs8" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzO-Mg-Fs8" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="132" y="418" width="150" height="40"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -196,7 +196,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4z-9M-59z" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4z-9M-59z" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="60" y="428" width="294" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="I2I-5f-u34"/>
@@ -224,7 +224,7 @@
         <!--Post an Item-->
         <scene sceneID="6K0-x0-QM8">
             <objects>
-                <viewController storyboardIdentifier="PostVC" id="I5m-s7-Qsl" customClass="PostItemVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostItemVC" id="I5m-s7-Qsl" customClass="PostItemVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zo6-dO-Yrf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,7 +254,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iui-9p-43x" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iui-9p-43x" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="60" y="584" width="294" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Pcx-Ec-XnL"/>
@@ -264,7 +264,7 @@
                                     <action selector="chooseImageButtonTapped:" destination="I5m-s7-Qsl" eventType="touchUpInside" id="WyO-OO-Pxq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1V-Ff-uI0" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1V-Ff-uI0" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="20" y="761" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="thM-Qg-OQN"/>
@@ -309,7 +309,7 @@
         <!--Describe Your Item-->
         <scene sceneID="O4W-mM-2Hr">
             <objects>
-                <viewController storyboardIdentifier="DescribeVC" id="6gZ-S1-G5n" customClass="DescribeItemVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DescribeItemVC" id="6gZ-S1-G5n" customClass="DescribeItemVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2OF-9W-DUN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,7 +330,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upg-Zd-JFZ" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upg-Zd-JFZ" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="20" y="761" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="F0J-dF-nyl"/>
@@ -391,7 +391,7 @@
         <!--Review Your Post-->
         <scene sceneID="CPO-Uk-Gz1">
             <objects>
-                <viewController id="SL1-x0-1ya" customClass="ReviewPostVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewPostVC" id="SL1-x0-1ya" customClass="ReviewPostVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tR8-GF-IMH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -414,7 +414,7 @@
                                 <color key="textColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah2-Sk-aiT" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah2-Sk-aiT" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="20" y="761" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hYt-aa-Enp"/>
@@ -562,7 +562,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRa-d1-qFq">
                                 <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyp-P7-6x8" customClass="AppNavigationButton" customModule="Local" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyp-P7-6x8" customClass="MainButton" customModule="Local" customModuleProvider="target">
                                         <rect key="frame" x="20" y="5" width="374" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="e1b-52-LTW"/>
@@ -625,10 +625,10 @@
             </objects>
             <point key="canvasLocation" x="1492.753623188406" y="359.59821428571428"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -650,7 +650,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MoL-Mf-7aH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WiR-1d-YYB" customClass="AppNavigationBar" customModule="Local" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WiR-1d-YYB" customClass="MainNavigationBar" customModule="Local" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -666,10 +666,10 @@
         <!--Post-->
         <scene sceneID="WIT-zT-Gyq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ad8-mm-U1y" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="PostNC" storyboardIdentifier="PostNC" automaticallyAdjustsScrollViewInsets="NO" id="Ad8-mm-U1y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="first" id="fbc-1e-BzI"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W0n-qK-dhu" customClass="AppNavigationBar" customModule="Local" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W0n-qK-dhu" customClass="MainNavigationBar" customModule="Local" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

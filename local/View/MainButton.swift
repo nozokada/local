@@ -1,5 +1,5 @@
 //
-//  NavigationButton.swift
+//  MainButton.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/12/19.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class AppNavigationButton: UIButton {
+class MainButton: UIButton {
 
     let fontName = MAIN_FONT_MEDIUM
     let fontSize: CGFloat = 18
