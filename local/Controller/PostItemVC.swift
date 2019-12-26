@@ -57,6 +57,10 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
         }
     }
     
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let describeItemVC = segue.destination as? DescribeItemVC {
             describeItemVC.initData(image: selectedImageView.image!, title: titleTextField.text!)

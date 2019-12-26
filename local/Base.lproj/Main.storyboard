@@ -295,7 +295,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nVs-Ib-WLg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Post an Item" id="QlZ-ba-WlC"/>
+                    <navigationItem key="navigationItem" title="Post an Item" id="QlZ-ba-WlC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="IUt-ie-gDk">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="I5m-s7-Qsl" id="Gd6-vV-2l5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="W1V-Ff-uI0" id="9bA-Za-KOT"/>
                         <outlet property="selectedImageView" destination="HV0-lp-WyT" id="fFI-lA-s2j"/>
