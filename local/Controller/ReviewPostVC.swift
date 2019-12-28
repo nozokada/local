@@ -28,6 +28,7 @@ class ReviewPostVC: UIViewController {
         titleLabel.text = itemTitle
         descriptionLabel.text = itemDescription
         priceLabel.text = " $\(itemPrice) "
+        priceLabel.layer.cornerRadius = 5
     }
     
     func initData(image: UIImage, title: String, description: String, price: String) {
@@ -54,7 +55,7 @@ class ReviewPostVC: UIViewController {
         let imagePath = itemImageRef.fullPath
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
-        let data = itemImage.jpegData(compressionQuality: 0.0)!
+        let data = itemImage.jpegData(compressionQuality: IMAGE_COMPRESSION_RATE)!
         itemImageRef.putData(data, metadata: metadata) { (metadata, error) in
             guard let _ = metadata, error == nil else {
                 debugPrint(error!.localizedDescription)

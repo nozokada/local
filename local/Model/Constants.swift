@@ -27,3 +27,5 @@ let IMAGE_PATHS = "imagePaths"
 let CREATED_BY = "createdBy"
 
 let IMAGES_REF = "images"
+let IMAGE_WIDTH: CGFloat = 450
+let IMAGE_COMPRESSION_RATE: CGFloat = 0.8

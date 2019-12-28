@@ -71,7 +71,7 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
 extension PostItemVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
-        selectedImageView.image = selectedImage
+        selectedImageView.image = resizeImage(image: selectedImage, newWidth: IMAGE_WIDTH)
         if titleTextField.text != "" {
             enableNextButton()
         }
@@ -80,5 +80,15 @@ extension PostItemVC: UIImagePickerControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
 }
