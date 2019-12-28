@@ -461,6 +461,7 @@
                     <navigationItem key="navigationItem" title="Review Your Post" id="sOM-Se-WtK"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="PDy-lm-goP" id="CA9-zP-yb4"/>
+                        <outlet property="postButton" destination="Ah2-Sk-aiT" id="ebs-KZ-aY8"/>
                         <outlet property="priceLabel" destination="RTE-g2-JHz" id="VxC-lv-slG"/>
                         <outlet property="selectedImageView" destination="Adh-CP-NUm" id="uhm-s1-TYG"/>
                         <outlet property="titleLabel" destination="8q8-xK-pqm" id="Mae-AZ-ZKh"/>

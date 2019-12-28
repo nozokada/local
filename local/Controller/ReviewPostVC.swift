@@ -15,6 +15,7 @@ class ReviewPostVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var postButton: MainButton!
     
     var itemImage: UIImage!
     var itemTitle: String = ""
@@ -36,6 +37,16 @@ class ReviewPostVC: UIViewController {
         itemPrice = price
     }
     
+    func enablePostButton() {
+        postButton.alpha = 1.0
+        postButton.isEnabled = true
+    }
+    
+    func disablePostButton() {
+        postButton.alpha = 0.5
+        postButton.isEnabled = false
+    }
+    
     func uploadItemImage(id: String) {
         let storageRef = Storage.storage().reference()
         let imagesRef = storageRef.child(IMAGES_REF)
@@ -43,7 +54,7 @@ class ReviewPostVC: UIViewController {
         let imagePath = itemImageRef.fullPath
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
-        let data = itemImage.jpegData(compressionQuality: 1)!
+        let data = itemImage.jpegData(compressionQuality: 0.0)!
         itemImageRef.putData(data, metadata: metadata) { (metadata, error) in
             guard let _ = metadata, error == nil else {
                 debugPrint(error!.localizedDescription)
@@ -75,5 +86,6 @@ class ReviewPostVC: UIViewController {
     @IBAction func postButtonTapped(_ sender: Any) {
         let id = UUID().uuidString
         uploadItemImage(id: id)
+        disablePostButton()
     }
 }
