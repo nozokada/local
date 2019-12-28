@@ -12,17 +12,39 @@ class BrowseVC: UIViewController {
     
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     
-    private(set) public var items = [Item]()
+    var loadingSpinner: UIActivityIndicatorView?
     
+    let screenSize = UIScreen.main.bounds
     let cellHorizontalPaddingSize: CGFloat = 6
+    
+    var items = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         itemsCollectionView.dataSource = self
         itemsCollectionView.delegate = self
+        
+        addLoadingSpinner()
         DataService.shared.getItems() { (items) in
             self.items = items
             self.itemsCollectionView.reloadData()
+            self.removeLoadingSpinner()
+        }
+    }
+    
+    func addLoadingSpinner() {
+        loadingSpinner = UIActivityIndicatorView()
+        loadingSpinner?.center = CGPoint(x: screenSize.width / 2 - (loadingSpinner?.frame.width)! / 2,
+                                         y: itemsCollectionView.frame.height / 2 - (loadingSpinner?.frame.width)! / 2)
+        loadingSpinner?.style = .large
+        loadingSpinner?.color = MAIN_COLOR
+        loadingSpinner?.startAnimating()
+        itemsCollectionView.addSubview(loadingSpinner!)
+    }
+    
+    func removeLoadingSpinner() {
+        if loadingSpinner != nil {
+            loadingSpinner?.removeFromSuperview()
         }
     }
 }

@@ -495,13 +495,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splatoon_2" translatesAutoresizingMaskIntoConstraints="NO" id="JfX-ic-J85">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_image" translatesAutoresizingMaskIntoConstraints="NO" id="JfX-ic-J85">
                                                     <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="JfX-ic-J85" secondAttribute="height" multiplier="1:1" id="0ss-YW-OT3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0c-Ua-XAW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0c-Ua-XAW">
                                                     <rect key="frame" x="8" y="144.5" width="37" height="27.5"/>
                                                     <color key="backgroundColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -692,7 +692,7 @@
     <resources>
         <image name="AppLogo" width="2903" height="2903"/>
         <image name="first" width="30" height="30"/>
+        <image name="loading_image" width="800" height="600"/>
         <image name="second" width="30" height="30"/>
-        <image name="splatoon_2" width="3024" height="4032"/>
     </resources>
 </document>

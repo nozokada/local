@@ -24,7 +24,7 @@ class ItemVC: UIViewController {
         super.viewDidLoad()
         itemImageView.image = itemImage
         itemTitleLabel.text = itemTitle
-        itemPriceLabel.text = " \(itemPrice) "
+        itemPriceLabel.text = " $\(itemPrice) "
         itemDescriptionLabel.text = itemDescription
         
         itemPriceLabel.layer.cornerRadius = 5
