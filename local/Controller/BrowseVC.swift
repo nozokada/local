@@ -20,7 +20,10 @@ class BrowseVC: UIViewController {
         super.viewDidLoad()
         itemsCollectionView.dataSource = self
         itemsCollectionView.delegate = self
-        items = DataService.shared.getItems()
+        DataService.shared.getItems() { (items) in
+            self.items = items
+            self.itemsCollectionView.reloadData()
+        }
     }
 }
 
@@ -33,7 +36,7 @@ extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath)
             as? ItemCell else { return ItemCell() }
         let item = items[indexPath.row]
-        cell.updateViews(item: item)
+        cell.update(item: item)
         return cell
     }
     

@@ -10,15 +10,17 @@ import UIKit
 
 class Item {
     
-    private(set) public var title: String
-    private(set) public var price: String
-    private(set) public var description: String
-    private(set) public var imageName: String
+    var title: String
+    var price: String
+    var description: String
+    var imagePaths: [String]
+    var photo: ItemPhoto
     
-    init(title: String, price: String, imageName: String, description: String) {
+    init(title: String, price: String, description: String, imagePaths: [String]) {
         self.title = title
         self.price = price
-        self.imageName = imageName
         self.description = description
+        self.imagePaths = imagePaths
+        self.photo = ItemPhoto(path: imagePaths.first!)
     }
 }

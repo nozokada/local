@@ -30,8 +30,10 @@ class ItemCell: UICollectionViewCell {
         itemPriceLabel.clipsToBounds = true
     }
     
-    func updateViews(item: Item) {
-        itemImageView.image = UIImage(named: item.imageName)
-        itemPriceLabel.text = " \(item.price) "
+    func update(item: Item) {
+        itemPriceLabel.text = " $\(item.price) "
+        item.photo.download() { (image) in
+            self.itemImageView.image = image
+        }
     }
 }

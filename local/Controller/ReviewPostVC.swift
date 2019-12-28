@@ -39,8 +39,8 @@ class ReviewPostVC: UIViewController {
     func uploadItemImage(id: String) {
         let storageRef = Storage.storage().reference()
         let imagesRef = storageRef.child(IMAGES_REF)
-        let filePath = "\(id)"
-        let itemImageRef = imagesRef.child(filePath)
+        let itemImageRef = imagesRef.child(UUID().uuidString)
+        let imagePath = itemImageRef.fullPath
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         let data = itemImage.jpegData(compressionQuality: 1)!
@@ -49,23 +49,17 @@ class ReviewPostVC: UIViewController {
                 debugPrint(error!.localizedDescription)
                 return
             }
-            itemImageRef.downloadURL { (url, error) in
-                guard let downloadURL = url, error == nil else {
-                    debugPrint(error!.localizedDescription)
-                    return
-                }
-                self.uploadItem(id: id, imageURL: downloadURL.absoluteString)
-            }
+            self.uploadItem(id: id, imagePaths: [imagePath])
         }
     }
     
-    func uploadItem(id: String, imageURL: String) {
+    func uploadItem(id: String, imagePaths: [String]) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         Firestore.firestore().collection(ITEMS_REF).document(id).setData([
             TITLE: itemTitle,
             DESCRIPTION: itemDescription,
             PRICE: itemPrice,
-            IMAGE_DOWNLOAD_URL: imageURL,
+            IMAGE_PATHS: imagePaths,
             CREATED_BY : userId,
             CREATED_TIMESTAMP : FieldValue.serverTimestamp()
         ]) { error in

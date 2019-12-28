@@ -23,7 +23,7 @@ let ITEMS_REF = "items"
 let TITLE = "title"
 let DESCRIPTION = "description"
 let PRICE = "price"
-let IMAGE_DOWNLOAD_URL = "imageDownloadURL"
+let IMAGE_PATHS = "imagePaths"
 let CREATED_BY = "createdBy"
 
 let IMAGES_REF = "images"

@@ -32,7 +32,7 @@ class ItemVC: UIViewController {
     }
     
     func initItem(item: Item) {
-        itemImage = UIImage(named: item.imageName)
+        itemImage = item.photo.image
         itemTitle = item.title
         itemPrice = item.price
         itemDescription = item.description
