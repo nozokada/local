@@ -9,6 +9,7 @@ target 'local' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'IQKeyboardManagerSwift'
 
   target 'localTests' do
     inherit! :search_paths
