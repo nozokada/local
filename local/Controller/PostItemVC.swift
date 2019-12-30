@@ -22,16 +22,6 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         disableNextButton()
-        addTapToView()
-    }
-    
-    func addTapToView() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(sender:)))
-        view.addGestureRecognizer(tapRecognizer)
-    }
-    
-    @objc func didTapView(sender: UITapGestureRecognizer) {
-        view.endEditing(true)
     }
     
     func enableNextButton() {

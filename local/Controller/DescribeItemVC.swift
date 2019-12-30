@@ -20,21 +20,11 @@ class DescribeItemVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         disableNextButton()
-        addTapToView()
     }
     
     func initData(image: UIImage, title: String) {
         itemTitle = title
         itemImage = image
-    }
-    
-    func addTapToView() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapView(sender:)))
-        view.addGestureRecognizer(tapRecognizer)
-    }
-    
-    @objc func didTapView(sender: UITapGestureRecognizer) {
-        view.endEditing(true)
     }
     
     @IBAction func priceLabelEditingDidEnd(_ sender: Any) {
