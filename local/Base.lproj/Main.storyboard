@@ -431,7 +431,7 @@
                                     <action selector="postButtonTapped:" destination="SL1-x0-1ya" eventType="touchUpInside" id="38b-JV-bqA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $35 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTE-g2-JHz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $35 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTE-g2-JHz" customClass="ItemPriceLabel" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="20" y="440" width="75" height="44"/>
                                 <color key="backgroundColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="32"/>
@@ -502,8 +502,8 @@
                                                         <constraint firstAttribute="width" secondItem="JfX-ic-J85" secondAttribute="height" multiplier="1:1" id="0ss-YW-OT3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0c-Ua-XAW">
-                                                    <rect key="frame" x="8" y="172" width="0.0" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $35 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0c-Ua-XAW" customClass="ItemPriceLabel" customModule="Local" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="144.5" width="47" height="27.5"/>
                                                     <color key="backgroundColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -594,7 +594,7 @@
                                 <color key="textColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $35 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SE-Xl-mhd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $35 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SE-Xl-mhd" customClass="ItemPriceLabel" customModule="Local" customModuleProvider="target">
                                 <rect key="frame" x="20" y="396" width="75" height="44"/>
                                 <color key="backgroundColor" red="0.14001739025115967" green="0.26080769300460815" blue="0.34510928392410278" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="32"/>
