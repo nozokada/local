@@ -14,7 +14,7 @@ class ReviewPostVC: UIViewController {
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var priceLabel: ItemPriceLabel!
     @IBOutlet weak var postButton: MainButton!
     
     var itemImage: UIImage!
@@ -28,7 +28,6 @@ class ReviewPostVC: UIViewController {
         titleLabel.text = itemTitle
         descriptionLabel.text = itemDescription
         priceLabel.text = " $\(itemPrice) "
-        priceLabel.layer.cornerRadius = 5
     }
     
     func initData(image: UIImage, title: String, description: String, price: String) {
