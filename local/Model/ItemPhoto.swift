@@ -11,8 +11,8 @@ import Firebase
 
 class ItemPhoto {
     
-    var path: String
-    var image: UIImage?
+    public private(set) var path: String
+    public private(set) var image: UIImage?
     
     init(path: String) {
         self.path = path

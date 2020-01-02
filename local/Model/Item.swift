@@ -10,11 +10,11 @@ import UIKit
 
 class Item {
     
-    var title: String
-    var price: String
-    var description: String
-    var imagePaths: [String]
-    var photo: ItemPhoto
+    public private(set) var title: String
+    public private(set) var price: String
+    public private(set) var description: String
+    public private(set) var imagePaths: [String]
+    public private(set) var photo: ItemPhoto
     
     init(title: String, price: String, description: String, imagePaths: [String]) {
         self.title = title
