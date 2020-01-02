@@ -47,30 +47,33 @@ class ReviewPostVC: UIViewController {
         postButton.isEnabled = false
     }
     
-    func uploadItemImage(id: String) {
-        let storageRef = Storage.storage().reference()
-        let imagesRef = storageRef.child(IMAGES_REF)
-        let itemImageRef = imagesRef.child(UUID().uuidString)
-        let imagePath = itemImageRef.fullPath
+    func uploadItemImage(itemImageRef: StorageReference) {
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         let data = itemImage.jpegData(compressionQuality: IMAGE_COMPRESSION_RATE)!
         itemImageRef.putData(data, metadata: metadata) { (metadata, error) in
-            guard let _ = metadata, error == nil else {
-                debugPrint(error!.localizedDescription)
-                return
+             if let error = error {
+                debugPrint(error.localizedDescription)
+            } else {
+                debugPrint("Item image was successfully uploaded")
+                self.dismiss(animated: true, completion: nil)
             }
-            self.uploadItem(id: id, imagePaths: [imagePath])
         }
     }
     
-    func uploadItem(id: String, imagePaths: [String]) {
+    func uploadItem(id: String) {
         guard let userId = Auth.auth().currentUser?.uid else { return }
+        
+        let storageRef = Storage.storage().reference()
+        let imagesRef = storageRef.child(IMAGES_REF)
+        let itemImageRef = imagesRef.child(UUID().uuidString)
+        let imagePath = itemImageRef.fullPath
+        
         Firestore.firestore().collection(ITEMS_REF).document(id).setData([
             TITLE: itemTitle,
             DESCRIPTION: itemDescription,
             PRICE: itemPrice,
-            IMAGE_PATHS: imagePaths,
+            IMAGE_PATHS: [imagePath],
             CREATED_BY : userId,
             CREATED_TIMESTAMP : FieldValue.serverTimestamp()
         ]) { error in
@@ -78,14 +81,14 @@ class ReviewPostVC: UIViewController {
                 debugPrint(error.localizedDescription)
             } else {
                 debugPrint("Item was successfully uploaded")
-                self.dismiss(animated: true, completion: nil)
+                self.uploadItemImage(itemImageRef: itemImageRef)
             }
         }
     }
     
     @IBAction func postButtonTapped(_ sender: Any) {
         let id = UUID().uuidString
-        uploadItemImage(id: id)
+        uploadItem(id: id)
         disablePostButton()
     }
 }
