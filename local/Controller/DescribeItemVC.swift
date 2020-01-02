@@ -28,10 +28,13 @@ class DescribeItemVC: UIViewController {
     }
     
     @IBAction func priceLabelEditingDidEnd(_ sender: Any) {
+        checkRequiredFields()
+    }
+    
+    func checkRequiredFields() {
         if priceLabel.text != nil {
             enableNextButton()
-        }
-        else {
+        } else {
             disableNextButton()
         }
     }

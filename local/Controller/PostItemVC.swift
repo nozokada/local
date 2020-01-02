@@ -11,9 +11,11 @@ import UIKit
 class PostItemVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedImageView: UIImageView!
+    @IBOutlet weak var selectedImageHelperView: UIView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var nextButton: MainButton!
     
+    var crossButton: UIButton?
     var imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
@@ -22,6 +24,29 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         disableNextButton()
+        createCrossButton()
+    }
+    
+    func createCrossButton() {
+        crossButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        crossButton?.layer.cornerRadius = 20
+        crossButton?.backgroundColor = MAIN_COLOR
+        crossButton?.setImage(UIImage(named: "cross.png"), for: .normal)
+        crossButton?.addTarget(self, action: #selector(crossButtonTapped), for: .touchUpInside)
+    }
+    
+    func addCrossButton() {
+        selectedImageHelperView.addSubview(crossButton!)
+    }
+    
+    func removeCrossButton() {
+        crossButton?.removeFromSuperview()
+    }
+    
+    @objc func crossButtonTapped(_ sender:UIButton) {
+        selectedImageView.image = nil
+        removeCrossButton()
+        checkRequiredFields()
     }
     
     func enableNextButton() {
@@ -34,17 +59,20 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
         nextButton.isEnabled = false
     }
     
+    func checkRequiredFields() {
+        if titleTextField.text != "" && selectedImageView.image != nil {
+            enableNextButton()
+        } else {
+            disableNextButton()
+        }
+    }
+    
     @IBAction func chooseImageButtonTapped(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func titleTextFieldEditingDidEnd(_ sender: Any) {
-        if titleTextField.text != "" && selectedImageView.image != nil {
-            enableNextButton()
-        }
-        else {
-            disableNextButton()
-        }
+        checkRequiredFields()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -62,10 +90,9 @@ extension PostItemVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         selectedImageView.image = resizeImage(image: selectedImage, newWidth: IMAGE_WIDTH)
-        if titleTextField.text != "" {
-            enableNextButton()
-        }
         picker.dismiss(animated: true, completion: nil)
+        addCrossButton()
+        checkRequiredFields()
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
