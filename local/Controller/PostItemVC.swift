@@ -12,41 +12,44 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var selectedImageHelperView: UIView!
+    @IBOutlet weak var chooseImageButton: MainButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var nextButton: MainButton!
     
-    var crossButton: UIButton?
+    var crossButton: UIButton!
     var imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureImagePiker()
+        createCrossButton()
+        checkRequiredFields()
+    }
+    
+    func configureImagePiker() {
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        disableNextButton()
-        createCrossButton()
     }
     
     func createCrossButton() {
         crossButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        crossButton?.layer.cornerRadius = 20
-        crossButton?.backgroundColor = MAIN_COLOR
-        crossButton?.setImage(UIImage(named: "cross.png"), for: .normal)
-        crossButton?.addTarget(self, action: #selector(crossButtonTapped), for: .touchUpInside)
+        crossButton.layer.cornerRadius = 20
+        crossButton.backgroundColor = MAIN_COLOR
+        crossButton.setImage(UIImage(named: "cross.png"), for: .normal)
+        crossButton.addTarget(self, action: #selector(crossButtonTapped), for: .touchUpInside)
+        selectedImageHelperView.addSubview(crossButton)
+        crossButton.isHidden = true
     }
     
     func addCrossButton() {
-        selectedImageHelperView.addSubview(crossButton!)
+        crossButton.isHidden = false
+        chooseImageButton.isHidden = true
     }
     
     func removeCrossButton() {
-        crossButton?.removeFromSuperview()
-    }
-    
-    @objc func crossButtonTapped(_ sender:UIButton) {
-        selectedImageView.image = nil
-        removeCrossButton()
-        checkRequiredFields()
+        crossButton.isHidden = true
+        chooseImageButton.isHidden = false
     }
     
     func enableNextButton() {
@@ -65,6 +68,12 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
         } else {
             disableNextButton()
         }
+    }
+    
+    @objc func crossButtonTapped(_ sender:UIButton) {
+        selectedImageView.image = nil
+        removeCrossButton()
+        checkRequiredFields()
     }
     
     @IBAction func chooseImageButtonTapped(_ sender: Any) {
