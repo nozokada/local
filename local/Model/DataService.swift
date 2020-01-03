@@ -15,6 +15,7 @@ class DataService {
 
     func getItems(completion: @escaping (([Item]) -> ())) {
         var items = [Item]()
+        debugPrint("Fetching items")
         Firestore.firestore().collection(ITEMS_REF).getDocuments() { (querySnapshot, err) in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download items")

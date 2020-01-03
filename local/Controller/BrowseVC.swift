@@ -12,7 +12,8 @@ class BrowseVC: UIViewController {
     
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     
-    var loadingSpinner: UIActivityIndicatorView?
+    var loadingSpinner: UIActivityIndicatorView!
+    var refreshControl: UIRefreshControl!
     
     let screenSize = UIScreen.main.bounds
     let cellHorizontalPaddingSize: CGFloat = 6
@@ -24,27 +25,45 @@ class BrowseVC: UIViewController {
         itemsCollectionView.dataSource = self
         itemsCollectionView.delegate = self
         
+        configureRefreshControl()
         addLoadingSpinner()
-        DataService.shared.getItems() { (items) in
-            self.items = items
-            self.itemsCollectionView.reloadData()
-            self.removeLoadingSpinner()
-        }
+        fetchItems()
     }
     
     func addLoadingSpinner() {
         loadingSpinner = UIActivityIndicatorView()
-        loadingSpinner?.center = CGPoint(x: screenSize.width / 2 - (loadingSpinner?.frame.width)! / 2,
+        loadingSpinner.center = CGPoint(x: screenSize.width / 2 - (loadingSpinner?.frame.width)! / 2,
                                          y: itemsCollectionView.frame.height / 2 - (loadingSpinner?.frame.width)! / 2)
-        loadingSpinner?.style = .large
-        loadingSpinner?.color = MAIN_COLOR
-        loadingSpinner?.startAnimating()
+        loadingSpinner.style = .large
+        loadingSpinner.color = MAIN_COLOR
+        loadingSpinner.startAnimating()
         itemsCollectionView.addSubview(loadingSpinner!)
     }
     
     func removeLoadingSpinner() {
         if loadingSpinner != nil {
             loadingSpinner?.removeFromSuperview()
+        }
+    }
+    
+    func configureRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = MAIN_COLOR
+        refreshControl.addTarget(self, action: #selector(refreshItems), for: .valueChanged)
+        itemsCollectionView.refreshControl = refreshControl
+        itemsCollectionView.alwaysBounceVertical = true
+    }
+    
+    @objc func refreshItems() {
+        fetchItems()
+    }
+    
+    func fetchItems() {
+        DataService.shared.getItems() { (items) in
+            self.items = items
+            self.itemsCollectionView.reloadData()
+            self.removeLoadingSpinner()
+            self.refreshControl.endRefreshing()
         }
     }
 }
@@ -63,7 +82,6 @@ extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCell else { return }
         let item = items[indexPath.row]
         if let itemVC = storyboard?.instantiateViewController(withIdentifier: "ItemVC") as? ItemVC {
             itemVC.initItem(item: item)
