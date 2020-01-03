@@ -21,12 +21,12 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureImagePiker()
+        configureImagePicker()
         createCrossButton()
         checkRequiredFields()
     }
     
-    func configureImagePiker() {
+    func configureImagePicker() {
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary

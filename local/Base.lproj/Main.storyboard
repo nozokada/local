@@ -231,6 +231,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HV0-lp-WyT">
                                 <rect key="frame" x="40" y="222" width="334" height="334"/>
+                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HV0-lp-WyT" secondAttribute="height" multiplier="1:1" id="VCL-qk-838"/>
                                 </constraints>
@@ -401,7 +402,7 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="Q8M-6g-XhG" id="TaH-u9-Bgc"/>
                         <outlet property="nextButton" destination="upg-Zd-JFZ" id="uxH-Df-n61"/>
-                        <outlet property="priceLabel" destination="KdX-ae-E9M" id="Xoz-iE-hUC"/>
+                        <outlet property="priceTextField" destination="KdX-ae-E9M" id="Xoz-iE-hUC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLh-0R-z3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,7 +11,7 @@ import UIKit
 class DescribeItemVC: UIViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var priceLabel: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var nextButton: MainButton!
     
     var itemImage: UIImage!
@@ -32,7 +32,7 @@ class DescribeItemVC: UIViewController {
     }
     
     func checkRequiredFields() {
-        if priceLabel.text != nil {
+        if priceTextField.text != "" {
             enableNextButton()
         } else {
             disableNextButton()
@@ -51,7 +51,7 @@ class DescribeItemVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let reviewPostVC = segue.destination as? ReviewPostVC {
-            let itemPrice = priceLabel.text!
+            let itemPrice = priceTextField.text!
             reviewPostVC.initData(image: itemImage,
                                   title: itemTitle,
                                   description: descriptionTextView.text,
