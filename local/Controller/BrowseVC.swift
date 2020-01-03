@@ -37,12 +37,12 @@ class BrowseVC: UIViewController {
         loadingSpinner.style = .large
         loadingSpinner.color = MAIN_COLOR
         loadingSpinner.startAnimating()
-        itemsCollectionView.addSubview(loadingSpinner!)
+        itemsCollectionView.addSubview(loadingSpinner)
     }
     
     func removeLoadingSpinner() {
         if loadingSpinner != nil {
-            loadingSpinner?.removeFromSuperview()
+            loadingSpinner.removeFromSuperview()
         }
     }
     
@@ -54,10 +54,6 @@ class BrowseVC: UIViewController {
         itemsCollectionView.alwaysBounceVertical = true
     }
     
-    @objc func refreshItems() {
-        fetchItems()
-    }
-    
     func fetchItems() {
         DataService.shared.getItems() { (items) in
             self.items = items
@@ -65,6 +61,10 @@ class BrowseVC: UIViewController {
             self.removeLoadingSpinner()
             self.refreshControl.endRefreshing()
         }
+    }
+    
+    @objc func refreshItems() {
+        fetchItems()
     }
 }
 
