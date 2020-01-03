@@ -24,6 +24,7 @@ class ItemPhoto {
         let imageRef = storageRef.child(path)
         imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             guard let data = data else {
+                debugPrint("Item image could not be downloaded")
                 return
             }
             self.image = UIImage(data: data)

@@ -27,7 +27,7 @@ class ReviewVC: UIViewController {
         selectedImageView.image = itemImage
         titleLabel.text = itemTitle
         descriptionLabel.text = itemDescription
-        priceLabel.text = " $\(itemPrice) "
+        priceLabel.text = " \(CURRENCY_SYMBOL)\(itemPrice) "
     }
     
     func initData(image: UIImage, title: String, description: String, price: String) {

@@ -27,7 +27,7 @@ class ItemVC: UIViewController {
             self.itemImageView.image = image
         }
         itemTitleLabel.text = itemTitle
-        itemPriceLabel.text = " $\(itemPrice) "
+        itemPriceLabel.text = " \(CURRENCY_SYMBOL)\(itemPrice) "
         itemDescriptionLabel.text = itemDescription
         
         itemPriceLabel.layer.cornerRadius = 5

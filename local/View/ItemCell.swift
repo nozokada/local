@@ -22,7 +22,7 @@ class ItemCell: UICollectionViewCell {
     }
     
     func update(item: Item) {
-        itemPriceLabel.text = " $\(item.price) "
+        itemPriceLabel.text = " \(CURRENCY_SYMBOL)\(item.price) "
         item.photo.download() { (image) in
             self.itemImageView.image = image
         }
