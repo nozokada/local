@@ -15,14 +15,17 @@ class ItemVC: UIViewController {
     @IBOutlet weak var itemPriceLabel: ItemPriceLabel!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     
-    var itemImage: UIImage!
-    var itemTitle: String = ""
+    var itemPhoto: ItemPhoto!
+    var itemTitle: String!
     var itemPrice: String = ""
-    var itemDescription: String = ""
+    var itemDescription: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemImageView.image = itemImage
+        
+        itemPhoto.download() { (image) in
+            self.itemImageView.image = image
+        }
         itemTitleLabel.text = itemTitle
         itemPriceLabel.text = " $\(itemPrice) "
         itemDescriptionLabel.text = itemDescription
@@ -32,7 +35,7 @@ class ItemVC: UIViewController {
     }
     
     func initItem(item: Item) {
-        itemImage = item.photo.image
+        itemPhoto = item.photo
         itemTitle = item.title
         itemPrice = item.price
         itemDescription = item.description

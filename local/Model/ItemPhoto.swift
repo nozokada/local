@@ -19,7 +19,7 @@ class ItemPhoto {
     }
     
     func download(completion: @escaping (UIImage?) -> ()) {
-        if image != nil { return }
+        if image != nil { completion(image); return }
         let storageRef = Storage.storage().reference()
         let imageRef = storageRef.child(path)
         imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
