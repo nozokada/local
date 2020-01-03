@@ -17,12 +17,12 @@ class DataService {
         var items = [Item]()
         Firestore.firestore().collection(ITEMS_REF).getDocuments() { (querySnapshot, err) in
             guard let documents = querySnapshot?.documents else {
-                print("Failed to download items")
+                debugPrint("Failed to download items")
                 completion([])
                 return
             }
             for document in documents {
-                print("\(document.documentID) => \(document.data())")
+//                debugPrint("\(document.documentID) => \(document.data())")
                 let itemData = document.data()
                 items.append(
                     Item(

@@ -19,7 +19,7 @@ class DescribeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        disableNextButton()
+        checkRequiredFields()
     }
     
     func initData(image: UIImage, title: String) {
