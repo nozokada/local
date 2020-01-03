@@ -1,5 +1,5 @@
 //
-//  DescribeItemVC.swift
+//  DescribeVC.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/19/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DescribeItemVC: UIViewController {
+class DescribeVC: UIViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var priceTextField: UITextField!
@@ -27,7 +27,7 @@ class DescribeItemVC: UIViewController {
         itemImage = image
     }
     
-    @IBAction func priceLabelEditingDidEnd(_ sender: Any) {
+    @IBAction func priceTextFieldEditingDidEnd(_ sender: Any) {
         checkRequiredFields()
     }
     
@@ -50,7 +50,7 @@ class DescribeItemVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let reviewPostVC = segue.destination as? ReviewPostVC {
+        if let reviewPostVC = segue.destination as? ReviewVC {
             let itemPrice = priceTextField.text!
             reviewPostVC.initData(image: itemImage,
                                   title: itemTitle,

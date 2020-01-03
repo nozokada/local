@@ -1,5 +1,5 @@
 //
-//  ReviewPostVC.swift
+//  ReviewVC.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/20/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ReviewPostVC: UIViewController {
+class ReviewVC: UIViewController {
 
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

@@ -1,5 +1,5 @@
 //
-//  PostItemVC.swift
+//  PostVC.swift
 //  local
 //
 //  Created by Nozomi Okada on 12/18/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostItemVC: UIViewController, UINavigationControllerDelegate {
+class PostVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var selectedImageHelperView: UIView!
@@ -89,13 +89,13 @@ class PostItemVC: UIViewController, UINavigationControllerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let describeItemVC = segue.destination as? DescribeItemVC {
+        if let describeItemVC = segue.destination as? DescribeVC {
             describeItemVC.initData(image: selectedImageView.image!, title: titleTextField.text!)
         }
     }
 }
 
-extension PostItemVC: UIImagePickerControllerDelegate {
+extension PostVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         selectedImageView.image = resizeImage(image: selectedImage, newWidth: IMAGE_WIDTH)
