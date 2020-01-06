@@ -561,6 +561,44 @@
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="359.59821428571428"/>
         </scene>
+        <!--Offers-->
+        <scene sceneID="5p7-I7-hFE">
+            <objects>
+                <viewController id="N5N-Zf-orX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kQe-kM-dDl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gid-7E-DV8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="123" id="ugA-mi-WEU">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="123"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ugA-mi-WEU" id="aKt-YN-PLK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gid-7E-DV8" firstAttribute="bottom" secondItem="zMc-wx-Kqn" secondAttribute="bottom" id="A54-4C-nUb"/>
+                            <constraint firstItem="gid-7E-DV8" firstAttribute="trailing" secondItem="zMc-wx-Kqn" secondAttribute="trailing" id="SUl-7j-sIG"/>
+                            <constraint firstItem="gid-7E-DV8" firstAttribute="top" secondItem="zMc-wx-Kqn" secondAttribute="top" id="YEw-Bp-RPs"/>
+                            <constraint firstItem="gid-7E-DV8" firstAttribute="leading" secondItem="zMc-wx-Kqn" secondAttribute="leading" id="zZl-Ip-ACf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zMc-wx-Kqn"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Offers" image="first" id="A6Q-Dj-ckL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UgV-BS-Rse" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="747.82608695652175" y="1023.8839285714286"/>
+        </scene>
         <!--ItemVC-->
         <scene sceneID="RD4-IF-8Da">
             <objects>
@@ -660,6 +698,7 @@
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="k4q-VX-5Wh"/>
                         <segue destination="Ad8-mm-U1y" kind="relationship" relationship="viewControllers" id="glz-eD-jmr"/>
+                        <segue destination="N5N-Zf-orX" kind="relationship" relationship="viewControllers" id="bbS-9v-CcO"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="Htm-PM-Aoh"/>
                     </connections>
                 </tabBarController>

@@ -27,6 +27,7 @@ class DataService {
                 let itemData = document.data()
                 items.append(
                     Item(
+                        id: document.documentID,
                         title: itemData[TITLE] as! String,
                         price: itemData[PRICE] as! String,
                         description: itemData[DESCRIPTION] as! String,
