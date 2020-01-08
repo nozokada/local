@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ItemVC: UIViewController {
 
@@ -14,7 +15,9 @@ class ItemVC: UIViewController {
     @IBOutlet weak var itemTitleLabel: UILabel!
     @IBOutlet weak var itemPriceLabel: ItemPriceLabel!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
+    @IBOutlet weak var askButton: MainButton!
     
+    var itemId: String!
     var itemPhoto: ItemPhoto!
     var itemTitle: String!
     var itemPrice: String = ""
@@ -35,9 +38,38 @@ class ItemVC: UIViewController {
     }
     
     func initItem(item: Item) {
+        itemId = item.id
         itemPhoto = item.photo
         itemTitle = item.title
         itemPrice = item.price
         itemDescription = item.description
+    }
+    
+    func enableAskButton() {
+        askButton.alpha = 1.0
+        askButton.isEnabled = true
+    }
+    
+    func disableAskButton() {
+        askButton.alpha = 0.5
+        askButton.isEnabled = false
+    }
+    
+    @IBAction func askButtonTapped(_ sender: Any) {
+        disableAskButton()
+        let id = UUID().uuidString
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        Firestore.firestore().collection(OFFERS_REF).document(id).setData([
+            ITEM_ID: itemId!,
+            SENDER_ID: userId,
+            CREATED_TIMESTAMP: FieldValue.serverTimestamp()
+        ]) { error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            } else {
+                debugPrint("Offer was successfully created")
+                self.enableAskButton()
+            }
+        }
     }
 }

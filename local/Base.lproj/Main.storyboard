@@ -564,22 +564,50 @@
         <!--Offers-->
         <scene sceneID="5p7-I7-hFE">
             <objects>
-                <viewController id="N5N-Zf-orX" sceneMemberID="viewController">
+                <viewController id="N5N-Zf-orX" customClass="OfferVC" customModule="Local" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kQe-kM-dDl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gid-7E-DV8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gid-7E-DV8">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="123" id="ugA-mi-WEU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OfferCell" rowHeight="123" id="ugA-mi-WEU" customClass="OfferCell" customModule="Local" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ugA-mi-WEU" id="aKt-YN-PLK">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_image" translatesAutoresizingMaskIntoConstraints="NO" id="BgT-xG-TBF">
+                                                    <rect key="frame" x="20" y="11" width="101" height="101"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="PL9-vx-HRy"/>
+                                                        <constraint firstAttribute="width" secondItem="BgT-xG-TBF" secondAttribute="height" multiplier="1:1" id="ZTZ-94-F7k"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Splatoon 2 for Nintendo Switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1Z-1h-FgZ">
+                                                    <rect key="frame" x="129" y="11" width="257" height="31"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                                    <color key="textColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="b1Z-1h-FgZ" firstAttribute="leading" secondItem="BgT-xG-TBF" secondAttribute="trailing" constant="8" id="D1e-o7-WWd"/>
+                                                <constraint firstItem="BgT-xG-TBF" firstAttribute="centerY" secondItem="aKt-YN-PLK" secondAttribute="centerY" id="DAG-bT-Hsk"/>
+                                                <constraint firstItem="b1Z-1h-FgZ" firstAttribute="top" secondItem="aKt-YN-PLK" secondAttribute="topMargin" id="HPd-EY-dAl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BgT-xG-TBF" secondAttribute="bottom" id="P1L-jw-SM9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="b1Z-1h-FgZ" secondAttribute="trailing" constant="8" id="e3k-7C-B03"/>
+                                                <constraint firstItem="BgT-xG-TBF" firstAttribute="top" secondItem="aKt-YN-PLK" secondAttribute="topMargin" id="gSS-Yj-sVG"/>
+                                                <constraint firstItem="BgT-xG-TBF" firstAttribute="leading" secondItem="aKt-YN-PLK" secondAttribute="leadingMargin" id="vBw-y2-LpY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemImageView" destination="BgT-xG-TBF" id="ydI-lP-bAi"/>
+                                            <outlet property="itemTitleLabel" destination="b1Z-1h-FgZ" id="LpB-yL-VaX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -594,6 +622,9 @@
                         <viewLayoutGuide key="safeArea" id="zMc-wx-Kqn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Offers" image="first" id="A6Q-Dj-ckL"/>
+                    <connections>
+                        <outlet property="offersTableView" destination="gid-7E-DV8" id="TUV-JL-QBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgV-BS-Rse" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -629,6 +660,7 @@
                                         </constraints>
                                         <state key="normal" title="Ask"/>
                                         <connections>
+                                            <action selector="askButtonTapped:" destination="DeW-8S-UCC" eventType="touchUpInside" id="gxP-sD-WbG"/>
                                             <action selector="signOutButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="OCx-Yc-0Jb"/>
                                         </connections>
                                     </button>
@@ -675,6 +707,7 @@
                         <viewLayoutGuide key="safeArea" id="7d4-j1-aVW"/>
                     </view>
                     <connections>
+                        <outlet property="askButton" destination="Uyp-P7-6x8" id="evr-5J-iSu"/>
                         <outlet property="itemDescriptionLabel" destination="bbD-KR-Vzi" id="0Uu-ox-9RG"/>
                         <outlet property="itemImageView" destination="oDL-9f-h8I" id="ZCW-Ro-6kn"/>
                         <outlet property="itemPriceLabel" destination="6SE-Xl-mhd" id="NtR-bH-7kh"/>

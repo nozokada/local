@@ -31,3 +31,7 @@ let CURRENCY_SYMBOL = "$"
 let IMAGES_REF = "images"
 let IMAGE_WIDTH: CGFloat = 450
 let IMAGE_COMPRESSION_RATE: CGFloat = 0.8
+
+let OFFERS_REF = "offers"
+let ITEM_ID = "itemId"
+let SENDER_ID = "senderId"
