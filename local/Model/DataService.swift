@@ -23,15 +23,13 @@ class DataService {
                 return
             }
             for document in documents {
-//                debugPrint("\(document.documentID) => \(document.data())")
                 let itemData = document.data()
                 items.append(
-                    Item(
-                        id: document.documentID,
-                        title: itemData[TITLE] as! String,
-                        price: itemData[PRICE] as! String,
-                        description: itemData[DESCRIPTION] as! String,
-                        imagePaths: itemData[IMAGE_PATHS] as! [String]
+                    Item(id: document.documentID,
+                         title: itemData[TITLE] as! String,
+                         price: itemData[PRICE] as! String,
+                         description: itemData[DESCRIPTION] as! String,
+                         imagePaths: itemData[IMAGE_PATHS] as! [String]
                     )
                 )
             }
@@ -68,10 +66,9 @@ class DataService {
             for document in documents {
                 let offerData = document.data()
                 offers.append(
-                    Offer(
-                        id: document.documentID,
-                        itemId: offerData[ITEM_ID] as! String,
-                        senderId: offerData[SENDER_ID] as! String
+                    Offer(id: document.documentID,
+                          itemId: offerData[ITEM_ID] as! String,
+                          senderId: offerData[SENDER_ID] as! String
                     )
                 )
             }
