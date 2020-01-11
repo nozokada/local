@@ -17,32 +17,24 @@ class ItemVC: UIViewController {
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     @IBOutlet weak var askButton: MainButton!
     
-    var itemId: String!
-    var itemPhoto: ItemPhoto!
-    var itemTitle: String!
-    var itemPrice: String = ""
-    var itemDescription: String!
+    var item: Item!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        itemPhoto.download() { (image) in
+        item.photo.download() { (image) in
             self.itemImageView.image = image
         }
-        itemTitleLabel.text = itemTitle
-        itemPriceLabel.text = " \(CURRENCY_SYMBOL)\(itemPrice) "
-        itemDescriptionLabel.text = itemDescription
+        itemTitleLabel.text = item.title
+        itemPriceLabel.text = " \(CURRENCY_SYMBOL)\(item.price) "
+        itemDescriptionLabel.text = item.description
         
         itemPriceLabel.layer.cornerRadius = 5
         itemPriceLabel.clipsToBounds = true
     }
     
     func initItem(item: Item) {
-        itemId = item.id
-        itemPhoto = item.photo
-        itemTitle = item.title
-        itemPrice = item.price
-        itemDescription = item.description
+        self.item = item
     }
     
     func enableAskButton() {
@@ -60,8 +52,9 @@ class ItemVC: UIViewController {
         let id = UUID().uuidString
         guard let userId = Auth.auth().currentUser?.uid else { return }
         Firestore.firestore().collection(OFFERS_REF).document(id).setData([
-            ITEM_ID: itemId!,
-            SENDER_ID: userId,
+            ITEM_ID: item.id,
+            FROM: userId,
+            TO: item.createdBy,
             CREATED_TIMESTAMP: FieldValue.serverTimestamp()
         ]) { error in
             if let error = error {

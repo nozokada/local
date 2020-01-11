@@ -34,4 +34,8 @@ let IMAGE_COMPRESSION_RATE: CGFloat = 0.8
 
 let OFFERS_REF = "offers"
 let ITEM_ID = "itemId"
-let SENDER_ID = "senderId"
+let MESSAGES_REF = "messages"
+let OFFER_ID = "offerId"
+let CONTENT = "content"
+let TO = "to"
+let FROM = "from"

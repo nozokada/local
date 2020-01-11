@@ -12,11 +12,13 @@ class Offer {
     
     public private(set) var id: String
     public private(set) var itemId: String
-    public private(set) var senderId: String
+    public private(set) var to: String
+    public private(set) var from: String
     
-    init(id: String, itemId: String, senderId: String) {
+    init(id: String, itemId: String, to: String, from: String) {
         self.id = id
         self.itemId = itemId
-        self.senderId = senderId
+        self.to = to
+        self.from = from
     }
 }

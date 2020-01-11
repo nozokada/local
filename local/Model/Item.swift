@@ -14,15 +14,17 @@ class Item {
     public private(set) var title: String
     public private(set) var price: String
     public private(set) var description: String
+    public private(set) var createdBy: String
     public private(set) var imagePaths: [String]
     public private(set) var photo: ItemPhoto
     
-    init(id: String, title: String, price: String, description: String, imagePaths: [String]) {
+    init(id: String, title: String, price: String, description: String, createdBy: String, imagePaths: [String]) {
         self.id = id
         self.title = title
         self.price = price
         self.description = description
         self.imagePaths = imagePaths
+        self.createdBy = createdBy
         self.photo = ItemPhoto(path: imagePaths.first!)
     }
 }

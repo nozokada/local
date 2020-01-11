@@ -57,7 +57,7 @@ class OfferVC: UIViewController {
     
     func fetchOffers() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
-        DataService.shared.getOffers(senderId: userId) { (offers) in
+        DataService.shared.getOffers(from: userId) { (offers) in
             self.offers = offers
             for offer in offers {
                 DataService.shared.getItem(id: offer.itemId) { item in

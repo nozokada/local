@@ -29,6 +29,7 @@ class DataService {
                          title: itemData[TITLE] as! String,
                          price: itemData[PRICE] as! String,
                          description: itemData[DESCRIPTION] as! String,
+                         createdBy: itemData[CREATED_BY] as! String,
                          imagePaths: itemData[IMAGE_PATHS] as! [String]
                     )
                 )
@@ -49,15 +50,16 @@ class DataService {
                             title: itemData![TITLE] as! String,
                             price: itemData![PRICE] as! String,
                             description: itemData![DESCRIPTION] as! String,
+                            createdBy: itemData![CREATED_BY] as! String,
                             imagePaths: itemData![IMAGE_PATHS] as! [String]
             )
             completion(item)
         }
     }
     
-    func getOffers(senderId: String, completion: @escaping (([Offer]) -> ())) {
+    func getOffers(from: String, completion: @escaping (([Offer]) -> ())) {
         var offers = [Offer]()
-        Firestore.firestore().collection(OFFERS_REF).whereField(SENDER_ID, isEqualTo: senderId).getDocuments() { (querySnapshot, err) in
+        Firestore.firestore().collection(OFFERS_REF).whereField(FROM, isEqualTo: from).getDocuments() { (querySnapshot, err) in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download offers")
                 completion([])
@@ -68,7 +70,8 @@ class DataService {
                 offers.append(
                     Offer(id: document.documentID,
                           itemId: offerData[ITEM_ID] as! String,
-                          senderId: offerData[SENDER_ID] as! String
+                          to: offerData[TO] as! String,
+                          from: offerData[FROM] as! String
                     )
                 )
             }
