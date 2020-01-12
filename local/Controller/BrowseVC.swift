@@ -84,7 +84,7 @@ extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         if let itemVC = storyboard?.instantiateViewController(withIdentifier: "ItemVC") as? ItemVC {
-            itemVC.initItem(item: item)
+            itemVC.initData(item: item)
             present(itemVC, animated: true, completion: nil)
         }
     }

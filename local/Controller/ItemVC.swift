@@ -33,7 +33,7 @@ class ItemVC: UIViewController {
         itemPriceLabel.clipsToBounds = true
     }
     
-    func initItem(item: Item) {
+    func initData(item: Item) {
         self.item = item
     }
     

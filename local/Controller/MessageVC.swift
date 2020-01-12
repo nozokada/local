@@ -10,7 +10,15 @@ import UIKit
 
 class MessageVC: UIViewController {
 
+    var offer: Offer!
+    var item: Item!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func initData(offer: Offer, item: Item) {
+        self.offer = offer
+        self.item = item
     }
 }

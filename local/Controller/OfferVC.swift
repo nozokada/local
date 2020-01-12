@@ -93,5 +93,12 @@ extension OfferVC: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let offer = offers[indexPath.row]
+        guard let item = items[offer.itemId] else { return }
+        if let messageVC = storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
+            messageVC.initData(offer: offer, item: item)
+            present(messageVC, animated: true, completion: nil)
+        }
+    }
 }
