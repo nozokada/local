@@ -69,19 +69,14 @@ class ReviewVC: UIViewController {
         let itemImageRef = imagesRef.child(UUID().uuidString)
         let imagePath = itemImageRef.fullPath
         
-        Firestore.firestore().collection(ITEMS_REF).document(id).setData([
-            TITLE: itemTitle,
-            DESCRIPTION: itemDescription,
-            PRICE: itemPrice,
-            IMAGE_PATHS: [imagePath],
-            CREATED_BY : userId,
-            CREATED_TIMESTAMP : FieldValue.serverTimestamp()
-        ]) { error in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-            } else {
-                debugPrint("Item was successfully uploaded")
+        let item = Item(id: id, title: itemTitle, price: itemPrice, description: itemDescription, createdBy: userId, imagePaths: [imagePath])
+        
+        DataService.shared.uploadItem(item: item) { success in
+            if success {
                 self.uploadItemImage(itemImageRef: itemImageRef)
+            }
+            else {
+                debugPrint("Failed to upload item (display alert)")
             }
         }
     }

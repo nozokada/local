@@ -34,6 +34,7 @@ class DataService {
                     )
                 )
             }
+            debugPrint("Successfully downloaded items")
             completion(items)
         }
     }
@@ -53,7 +54,27 @@ class DataService {
                             createdBy: itemData![CREATED_BY] as! String,
                             imagePaths: itemData![IMAGE_PATHS] as! [String]
             )
+            debugPrint("Successfully downloaded item")
             completion(item)
+        }
+    }
+    
+    func uploadItem(item: Item, completion: @escaping (Bool) -> ()) {
+        Firestore.firestore().collection(ITEMS_REF).document(item.id).setData([
+            TITLE: item.title,
+            DESCRIPTION: item.description,
+            PRICE: item.price,
+            IMAGE_PATHS: item.imagePaths,
+            CREATED_BY : item.createdBy,
+            CREATED_TIMESTAMP : FieldValue.serverTimestamp()
+        ]) { error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                completion(false)
+            } else {
+                debugPrint("Successfully uploaded item")
+                completion(true)
+            }
         }
     }
     
@@ -90,7 +111,7 @@ class DataService {
                 debugPrint(error.localizedDescription)
                 completion(false)
             } else {
-                debugPrint("Offer was successfully created")
+                debugPrint("Successfully uploaded offer")
                 completion(true)
             }
         }

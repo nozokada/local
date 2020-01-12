@@ -61,7 +61,7 @@ class ItemVC: UIViewController {
                 }
             }
             else {
-                debugPrint("Failed to upload offer")
+                debugPrint("Failed to upload offer (display alert)")
             }
         }
     }
