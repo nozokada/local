@@ -51,9 +51,9 @@ class ReviewVC: UIViewController {
         DataService.shared.uploadItemImage(image: itemImage, storageRef: itemImageRef) { success in
             if success {
                 self.dismiss(animated: true, completion: nil)
-            }
-            else {
+            } else {
                 debugPrint("Failed to upload item image (display alert)")
+                self.enablePostButton()
             }
         }
     }
@@ -71,9 +71,9 @@ class ReviewVC: UIViewController {
         DataService.shared.uploadItem(item: item) { success in
             if success {
                 self.uploadItemImage(itemImageRef: itemImageRef)
-            }
-            else {
+            } else {
                 debugPrint("Failed to upload item (display alert)")
+                self.enablePostButton()
             }
         }
     }

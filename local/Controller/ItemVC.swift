@@ -47,22 +47,38 @@ class ItemVC: UIViewController {
         askButton.isEnabled = false
     }
     
-    @IBAction func askButtonTapped(_ sender: Any) {
-        disableAskButton()
-        let id = UUID().uuidString
-        guard let userId = Auth.auth().currentUser?.uid else { return }
+    func uploadOffer(id: String, userId: String) {
         let offer = Offer(id: id, itemId: item.id, to: item.createdBy, from: userId)
         DataService.shared.uploadOffer(offer: offer, item: item) { success in
-            self.enableAskButton()
             if success {
-                if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
-                    messageVC.initData(offer: offer, item: self.item)
-                    self.present(messageVC, animated: true, completion: nil)
-                }
-            }
-            else {
+                self.openMessageVC(offer: offer, item: self.item)
+            } else {
                 debugPrint("Failed to upload offer (display alert)")
             }
+        }
+    }
+    
+    func openMessageVC(offer: Offer, item: Item) {
+        if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
+            messageVC.initData(offer: offer, item: self.item)
+            self.present(messageVC, animated: true, completion: nil)
+        }
+        self.enableAskButton()
+    }
+    
+    @IBAction func askButtonTapped(_ sender: Any) {
+        disableAskButton()
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        
+        DataService.shared.getOutGoingOffers(from: userId) { offers in
+            for offer in offers {
+                if offer.itemId == self.item.id {
+                    self.openMessageVC(offer: offer, item: self.item)
+                    return
+                }
+            }
+            let id = UUID().uuidString
+            self.uploadOffer(id: id, userId: userId)
         }
     }
 }

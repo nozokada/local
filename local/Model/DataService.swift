@@ -93,7 +93,7 @@ class DataService {
         }
     }
     
-    func getOffers(from: String, completion: @escaping (([Offer]) -> ())) {
+    func getOutGoingOffers(from: String, completion: @escaping (([Offer]) -> ())) {
         var offers = [Offer]()
         Firestore.firestore().collection(OFFERS_REF).whereField(FROM, isEqualTo: from).getDocuments() { (querySnapshot, err) in
             guard let documents = querySnapshot?.documents else {
