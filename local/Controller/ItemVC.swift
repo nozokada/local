@@ -52,21 +52,16 @@ class ItemVC: UIViewController {
         let id = UUID().uuidString
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let offer = Offer(id: id, itemId: item.id, to: item.createdBy, from: userId)
-        Firestore.firestore().collection(OFFERS_REF).document(id).setData([
-            ITEM_ID: offer.itemId,
-            FROM: offer.from,
-            TO: item.createdBy,
-            CREATED_TIMESTAMP: FieldValue.serverTimestamp()
-        ]) { error in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-            } else {
-                debugPrint("Offer was successfully created")
-                self.enableAskButton()
+        DataService.shared.uploadOffer(offer: offer, item: item) { success in
+            self.enableAskButton()
+            if success {
                 if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
                     messageVC.initData(offer: offer, item: self.item)
                     self.present(messageVC, animated: true, completion: nil)
                 }
+            }
+            else {
+                debugPrint("Failed to upload offer")
             }
         }
     }

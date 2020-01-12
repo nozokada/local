@@ -78,4 +78,21 @@ class DataService {
             completion(offers)
         }
     }
+    
+    func uploadOffer(offer: Offer, item: Item, completion: @escaping (Bool) -> ()) {
+        Firestore.firestore().collection(OFFERS_REF).document(offer.id).setData([
+            ITEM_ID: offer.itemId,
+            FROM: offer.from,
+            TO: item.createdBy,
+            CREATED_TIMESTAMP: FieldValue.serverTimestamp()
+        ]) { error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                completion(false)
+            } else {
+                debugPrint("Offer was successfully created")
+                completion(true)
+            }
+        }
+    }
 }
