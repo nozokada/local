@@ -51,9 +51,10 @@ class ItemVC: UIViewController {
         disableAskButton()
         let id = UUID().uuidString
         guard let userId = Auth.auth().currentUser?.uid else { return }
+        let offer = Offer(id: id, itemId: item.id, to: item.createdBy, from: userId)
         Firestore.firestore().collection(OFFERS_REF).document(id).setData([
-            ITEM_ID: item.id,
-            FROM: userId,
+            ITEM_ID: offer.itemId,
+            FROM: offer.from,
             TO: item.createdBy,
             CREATED_TIMESTAMP: FieldValue.serverTimestamp()
         ]) { error in
@@ -62,7 +63,6 @@ class ItemVC: UIViewController {
             } else {
                 debugPrint("Offer was successfully created")
                 self.enableAskButton()
-                let offer = Offer(id: id, itemId: self.item.id, to: self.item.createdBy, from: userId)
                 if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
                     messageVC.initData(offer: offer, item: self.item)
                     self.present(messageVC, animated: true, completion: nil)
