@@ -62,7 +62,9 @@ class ItemVC: UIViewController {
             } else {
                 debugPrint("Offer was successfully created")
                 self.enableAskButton()
+                let offer = Offer(id: id, itemId: self.item.id, to: self.item.createdBy, from: userId)
                 if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
+                    messageVC.initData(offer: offer, item: self.item)
                     self.present(messageVC, animated: true, completion: nil)
                 }
             }

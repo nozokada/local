@@ -658,23 +658,56 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-u9-cmt">
-                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGP-Rg-Gdu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_image" translatesAutoresizingMaskIntoConstraints="NO" id="KVJ-Nh-Uhw">
+                                        <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KVJ-Nh-Uhw" secondAttribute="height" multiplier="1:1" id="R4o-u0-xfg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Splatoon 2 for Nintendo Switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9o-jP-HZd">
+                                        <rect key="frame" x="100" y="8" width="306" height="31"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                        <color key="textColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="J9o-jP-HZd" secondAttribute="trailing" constant="8" id="NxC-6g-9bo"/>
+                                    <constraint firstItem="J9o-jP-HZd" firstAttribute="leading" secondItem="KVJ-Nh-Uhw" secondAttribute="trailing" constant="8" id="P2q-Cc-BVi"/>
+                                    <constraint firstAttribute="bottom" secondItem="KVJ-Nh-Uhw" secondAttribute="bottom" constant="8" id="SXe-06-8yj"/>
+                                    <constraint firstAttribute="height" constant="100" id="XKr-eF-hZ5"/>
+                                    <constraint firstItem="KVJ-Nh-Uhw" firstAttribute="leading" secondItem="iGP-Rg-Gdu" secondAttribute="leading" constant="8" id="b5Y-QN-AST"/>
+                                    <constraint firstItem="KVJ-Nh-Uhw" firstAttribute="top" secondItem="iGP-Rg-Gdu" secondAttribute="top" constant="8" id="nsa-xi-EZ2"/>
+                                    <constraint firstItem="J9o-jP-HZd" firstAttribute="top" secondItem="iGP-Rg-Gdu" secondAttribute="top" constant="8" id="yfv-b0-duT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="B1z-QN-58i" firstAttribute="trailing" secondItem="IoO-ZA-zJY" secondAttribute="trailing" id="02s-dP-dP4"/>
                             <constraint firstItem="IoO-ZA-zJY" firstAttribute="bottom" secondItem="B1z-QN-58i" secondAttribute="bottom" id="12l-y0-IXd"/>
                             <constraint firstItem="2Ak-u9-cmt" firstAttribute="trailing" secondItem="IoO-ZA-zJY" secondAttribute="trailing" id="1Qn-eI-zNy"/>
+                            <constraint firstItem="iGP-Rg-Gdu" firstAttribute="leading" secondItem="IoO-ZA-zJY" secondAttribute="leading" id="U9m-68-GKe"/>
+                            <constraint firstItem="iGP-Rg-Gdu" firstAttribute="top" secondItem="IoO-ZA-zJY" secondAttribute="top" id="WR2-8S-Kbq"/>
                             <constraint firstItem="B1z-QN-58i" firstAttribute="leading" secondItem="IoO-ZA-zJY" secondAttribute="leading" id="YIk-4t-zFW"/>
-                            <constraint firstItem="B1z-QN-58i" firstAttribute="top" secondItem="2Ak-u9-cmt" secondAttribute="bottom" id="eTC-IG-vrV"/>
+                            <constraint firstItem="iGP-Rg-Gdu" firstAttribute="trailing" secondItem="IoO-ZA-zJY" secondAttribute="trailing" id="a8j-76-Zn3"/>
+                            <constraint firstItem="2Ak-u9-cmt" firstAttribute="top" secondItem="iGP-Rg-Gdu" secondAttribute="bottom" id="fmM-wN-LyZ"/>
                             <constraint firstItem="B1z-QN-58i" firstAttribute="top" secondItem="2Ak-u9-cmt" secondAttribute="bottom" id="hwZ-sn-2Ws"/>
                             <constraint firstItem="2Ak-u9-cmt" firstAttribute="leading" secondItem="IoO-ZA-zJY" secondAttribute="leading" id="shI-lZ-ivd"/>
-                            <constraint firstItem="2Ak-u9-cmt" firstAttribute="top" secondItem="IoO-ZA-zJY" secondAttribute="top" id="wYc-PY-paF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IoO-ZA-zJY"/>
                     </view>
+                    <connections>
+                        <outlet property="itemImageView" destination="KVJ-Nh-Uhw" id="79x-0r-FrF"/>
+                        <outlet property="itemTitleLabel" destination="J9o-jP-HZd" id="44b-5X-Z7p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sja-eh-sNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

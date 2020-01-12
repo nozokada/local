@@ -10,11 +10,19 @@ import UIKit
 
 class MessageVC: UIViewController {
 
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemTitleLabel: UILabel!
+    
     var offer: Offer!
     var item: Item!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        item.photo.download() { (image) in
+            self.itemImageView.image = image
+        }
+        itemTitleLabel.text = item.title
     }
     
     func initData(offer: Offer, item: Item) {
