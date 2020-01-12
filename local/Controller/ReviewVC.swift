@@ -48,15 +48,12 @@ class ReviewVC: UIViewController {
     }
     
     func uploadItemImage(itemImageRef: StorageReference) {
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpg"
-        let data = itemImage.jpegData(compressionQuality: IMAGE_COMPRESSION_RATE)!
-        itemImageRef.putData(data, metadata: metadata) { (metadata, error) in
-             if let error = error {
-                debugPrint(error.localizedDescription)
-            } else {
-                debugPrint("Item image was successfully uploaded")
+        DataService.shared.uploadItemImage(image: itemImage, storageRef: itemImageRef) { success in
+            if success {
                 self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                debugPrint("Failed to upload item image (display alert)")
             }
         }
     }

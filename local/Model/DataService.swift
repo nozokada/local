@@ -78,6 +78,21 @@ class DataService {
         }
     }
     
+    func uploadItemImage(image: UIImage, storageRef: StorageReference, completion: @escaping (Bool) -> ()) {
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        let data = image.jpegData(compressionQuality: IMAGE_COMPRESSION_RATE)!
+        storageRef.putData(data, metadata: metadata) { (metadata, error) in
+             if let error = error {
+                debugPrint(error.localizedDescription)
+                completion(false)
+            } else {
+                debugPrint("Successfully uploaded item image")
+                completion(true)
+            }
+        }
+    }
+    
     func getOffers(from: String, completion: @escaping (([Offer]) -> ())) {
         var offers = [Offer]()
         Firestore.firestore().collection(OFFERS_REF).whereField(FROM, isEqualTo: from).getDocuments() { (querySnapshot, err) in
