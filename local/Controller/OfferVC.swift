@@ -100,5 +100,6 @@ extension OfferVC: UITableViewDataSource, UITableViewDelegate {
             messageVC.initData(offer: offer, item: item)
             present(messageVC, animated: true, completion: nil)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

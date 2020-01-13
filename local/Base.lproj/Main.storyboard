@@ -660,6 +660,31 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-u9-cmt">
                                 <rect key="frame" x="0.0" y="144" width="414" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" rowHeight="87" id="z1c-cS-CaP" customClass="MessageCell" customModule="Local" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="87"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z1c-cS-CaP" id="osZ-Mf-e9M">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWQ-a7-vMa" customClass="MessageContentLabel" customModule="Local" customModuleProvider="target">
+                                                    <rect key="frame" x="186" y="33.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OWQ-a7-vMa" firstAttribute="centerX" secondItem="osZ-Mf-e9M" secondAttribute="centerX" id="DV0-UC-q1j"/>
+                                                <constraint firstItem="OWQ-a7-vMa" firstAttribute="centerY" secondItem="osZ-Mf-e9M" secondAttribute="centerY" id="vII-Fh-3wC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="OWQ-a7-vMa" id="CuL-2h-ITF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGP-Rg-Gdu">
                                 <rect key="frame" x="0.0" y="44" width="414" height="100"/>
@@ -707,6 +732,8 @@
                     <connections>
                         <outlet property="itemImageView" destination="KVJ-Nh-Uhw" id="79x-0r-FrF"/>
                         <outlet property="itemTitleLabel" destination="J9o-jP-HZd" id="44b-5X-Z7p"/>
+                        <outlet property="messageTextField" destination="LSY-68-RhY" id="7te-Ja-dwk"/>
+                        <outlet property="messagesTableView" destination="2Ak-u9-cmt" id="umh-9N-o4q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sja-eh-sNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

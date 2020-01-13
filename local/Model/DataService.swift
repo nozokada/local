@@ -16,7 +16,7 @@ class DataService {
     func getItems(completion: @escaping (([Item]) -> ())) {
         var items = [Item]()
         debugPrint("Fetching items")
-        Firestore.firestore().collection(ITEMS_REF).getDocuments() { (querySnapshot, err) in
+        Firestore.firestore().collection(ITEMS_REF).getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download items")
                 completion([])
@@ -40,7 +40,7 @@ class DataService {
     }
     
     func getItem(id: String, completion: @escaping ((Item?) -> ())) {
-        Firestore.firestore().collection(ITEMS_REF).document(id).getDocument { (document, err) in
+        Firestore.firestore().collection(ITEMS_REF).document(id).getDocument { (document, error) in
             guard let document = document, document.exists else {
                 debugPrint("Document does not exist")
                 completion(nil)
@@ -95,7 +95,7 @@ class DataService {
     
     func getOutGoingOffers(from: String, completion: @escaping (([Offer]) -> ())) {
         var offers = [Offer]()
-        Firestore.firestore().collection(OFFERS_REF).whereField(FROM, isEqualTo: from).getDocuments() { (querySnapshot, err) in
+        Firestore.firestore().collection(OFFERS_REF).whereField(FROM, isEqualTo: from).order(by: CREATED_TIMESTAMP).getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download offers")
                 completion([])
@@ -111,6 +111,7 @@ class DataService {
                     )
                 )
             }
+            debugPrint("Successfully downloaded offers")
             completion(offers)
         }
     }
@@ -118,8 +119,8 @@ class DataService {
     func uploadOffer(offer: Offer, item: Item, completion: @escaping (Bool) -> ()) {
         Firestore.firestore().collection(OFFERS_REF).document(offer.id).setData([
             ITEM_ID: offer.itemId,
-            FROM: offer.from,
             TO: item.createdBy,
+            FROM: offer.from,
             CREATED_TIMESTAMP: FieldValue.serverTimestamp()
         ]) { error in
             if let error = error {
@@ -127,6 +128,48 @@ class DataService {
                 completion(false)
             } else {
                 debugPrint("Successfully uploaded offer")
+                completion(true)
+            }
+        }
+    }
+    
+    func getMessages(offer: Offer, completion: @escaping ([Message]) ->()) {
+        var messages = [Message]()
+        Firestore.firestore().collection(MESSAGES_REF).whereField(OFFER_ID, isEqualTo: offer.id).order(by: CREATED_TIMESTAMP).getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                debugPrint("Failed to download messages")
+                completion([])
+                return
+            }
+            for document in documents {
+                let messageData = document.data()
+                messages.append(
+                    Message(id: document.documentID,
+                            offerId: messageData[OFFER_ID] as! String,
+                            content: messageData[CONTENT] as! String,
+                            to: messageData[TO] as! String,
+                            from: messageData[FROM] as! String
+                    )
+                )
+            }
+            debugPrint("Successfully downloaded messages")
+            completion(messages)
+        }
+    }
+    
+    func uploadMessage(message: Message, completion: @escaping (Bool) -> ()) {
+        Firestore.firestore().collection(MESSAGES_REF).document(message.id).setData([
+            OFFER_ID: message.offerId,
+            CONTENT: message.content,
+            TO: message.to,
+            FROM: message.from,
+            CREATED_TIMESTAMP: FieldValue.serverTimestamp()
+        ]) { error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                completion(false)
+            } else {
+                debugPrint("Successfully uploaded message")
                 completion(true)
             }
         }
