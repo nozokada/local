@@ -60,7 +60,7 @@ class ItemVC: UIViewController {
     
     func openMessageVC(offer: Offer, item: Item) {
         if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
-            messageVC.initData(offer: offer, item: self.item)
+            messageVC.initData(offer: offer, item: self.item, receipient: offer.to)
             self.present(messageVC, animated: true, completion: nil)
         }
         self.enableAskButton()

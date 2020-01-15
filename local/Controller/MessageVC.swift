@@ -24,7 +24,8 @@ class MessageVC: UIViewController {
     
     var offer: Offer!
     var item: Item!
-    var messages: [Message] = []
+    var receipient: String!
+    var messages = [Message]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,10 @@ class MessageVC: UIViewController {
         fetchMessages()
     }
     
-    func initData(offer: Offer, item: Item) {
+    func initData(offer: Offer, item: Item, receipient: String) {
         self.offer = offer
         self.item = item
+        self.receipient = receipient
     }
     
     func loadHeaderView() {
@@ -106,7 +108,7 @@ extension MessageVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if messageTextField.text == "" { return false }
         let id = UUID().uuidString
-        let message = Message(id: id, offerId: offer.id, content: messageTextField.text!, to: item.createdBy, from: userId)
+        let message = Message(id: id, offerId: offer.id, content: messageTextField.text!, to: receipient, from: userId)
         DataService.shared.uploadMessage(message: message) { success in
             if success {
                 self.messageTextField.text = ""

@@ -21,6 +21,7 @@ class OfferVC: UIViewController {
     
     var offers = [Offer]()
     var items = [String: Item]()
+    var buyingSelected = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +57,15 @@ class OfferVC: UIViewController {
         offersTableView.alwaysBounceVertical = true
     }
     
+    @IBAction func offerTypesSegmentedControlChanged(_ sender: UISegmentedControl) {
+        buyingSelected = sender.selectedSegmentIndex == 0
+        addLoadingSpinner()
+        fetchOffers()
+    }
+    
     func fetchOffers() {
-        DataService.shared.getOffers(type: FROM) { (offers) in
+        let offerType = buyingSelected ? FROM : TO
+        DataService.shared.getOffers(type: offerType) { (offers) in
             self.offers = offers
             if offers.count == 0 {
                 self.reloadTable()
@@ -104,8 +112,9 @@ extension OfferVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let offer = offers[indexPath.row]
         guard let item = items[offer.itemId] else { return }
+        let receipient =  buyingSelected ? offer.to : offer.from
         if let messageVC = storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
-            messageVC.initData(offer: offer, item: item)
+            messageVC.initData(offer: offer, item: item, receipient: receipient)
             present(messageVC, animated: true, completion: nil)
         }
         tableView.deselectRow(at: indexPath, animated: true)

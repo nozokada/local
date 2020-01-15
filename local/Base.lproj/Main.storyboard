@@ -617,6 +617,9 @@
                                     <segment title="Buying"/>
                                     <segment title="Selling"/>
                                 </segments>
+                                <connections>
+                                    <action selector="offerTypesSegmentedControlChanged:" destination="N5N-Zf-orX" eventType="valueChanged" id="YOG-Hr-qtY"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
