@@ -57,8 +57,7 @@ class OfferVC: UIViewController {
     }
     
     func fetchOffers() {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
-        DataService.shared.getOutGoingOffers(from: userId) { (offers) in
+        DataService.shared.getOffers(type: FROM) { (offers) in
             self.offers = offers
             if offers.count == 0 {
                 self.reloadTable()

@@ -69,8 +69,7 @@ class ItemVC: UIViewController {
     @IBAction func askButtonTapped(_ sender: Any) {
         disableAskButton()
         guard let userId = Auth.auth().currentUser?.uid else { return }
-        
-        DataService.shared.getOutGoingOffers(from: userId) { offers in
+        DataService.shared.getOffers(type: FROM) { offers in
             for offer in offers {
                 if offer.itemId == self.item.id {
                     self.openMessageVC(offer: offer, item: self.item)

@@ -93,9 +93,10 @@ class DataService {
         }
     }
     
-    func getOutGoingOffers(from: String, completion: @escaping (([Offer]) -> ())) {
+    func getOffers(type: String, completion: @escaping (([Offer]) -> ())) {
         var offers = [Offer]()
-        Firestore.firestore().collection(OFFERS_REF).whereField(FROM, isEqualTo: from).order(by: CREATED_TIMESTAMP).getDocuments() { (querySnapshot, error) in
+        guard let userId = Auth.auth().currentUser?.uid else { completion([]); return }
+        Firestore.firestore().collection(OFFERS_REF).whereField(type, isEqualTo: userId).order(by: CREATED_TIMESTAMP).getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download offers")
                 completion([])
