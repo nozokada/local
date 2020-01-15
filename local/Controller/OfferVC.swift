@@ -11,6 +11,7 @@ import Firebase
 
 class OfferVC: UIViewController {
 
+    @IBOutlet weak var offerTypesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var offersTableView: UITableView!
     
     var loadingSpinner: UIActivityIndicatorView!

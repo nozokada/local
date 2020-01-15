@@ -570,7 +570,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gid-7E-DV8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="75" width="414" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OfferCell" rowHeight="123" id="ugA-mi-WEU" customClass="OfferCell" customModule="Local" customModuleProvider="target">
@@ -611,18 +611,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-Iy-fRk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Buying"/>
+                                    <segment title="Selling"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="GPu-Iy-fRk" firstAttribute="trailing" secondItem="zMc-wx-Kqn" secondAttribute="trailing" id="193-ns-MaU"/>
+                            <constraint firstItem="GPu-Iy-fRk" firstAttribute="top" secondItem="zMc-wx-Kqn" secondAttribute="top" id="50u-s7-jIN"/>
                             <constraint firstItem="gid-7E-DV8" firstAttribute="bottom" secondItem="zMc-wx-Kqn" secondAttribute="bottom" id="A54-4C-nUb"/>
+                            <constraint firstItem="GPu-Iy-fRk" firstAttribute="leading" secondItem="zMc-wx-Kqn" secondAttribute="leading" id="QsY-r5-Qqm"/>
                             <constraint firstItem="gid-7E-DV8" firstAttribute="trailing" secondItem="zMc-wx-Kqn" secondAttribute="trailing" id="SUl-7j-sIG"/>
-                            <constraint firstItem="gid-7E-DV8" firstAttribute="top" secondItem="zMc-wx-Kqn" secondAttribute="top" id="YEw-Bp-RPs"/>
+                            <constraint firstItem="gid-7E-DV8" firstAttribute="top" secondItem="GPu-Iy-fRk" secondAttribute="bottom" id="pCV-PH-dTF"/>
                             <constraint firstItem="gid-7E-DV8" firstAttribute="leading" secondItem="zMc-wx-Kqn" secondAttribute="leading" id="zZl-Ip-ACf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zMc-wx-Kqn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Offers" image="first" id="A6Q-Dj-ckL"/>
                     <connections>
+                        <outlet property="offerTypesSegmentedControl" destination="GPu-Iy-fRk" id="hKa-NU-fTb"/>
                         <outlet property="offersTableView" destination="gid-7E-DV8" id="TUV-JL-QBd"/>
                     </connections>
                 </viewController>
