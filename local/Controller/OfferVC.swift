@@ -60,15 +60,17 @@ class OfferVC: UIViewController {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         DataService.shared.getOutGoingOffers(from: userId) { (offers) in
             self.offers = offers
+            if offers.count == 0 {
+                self.reloadTable()
+                return
+            }
             for offer in offers {
                 DataService.shared.getItem(id: offer.itemId) { item in
                     if let item = item {
                         self.items[item.id] = item
                     }
                     if self.items.count == self.offers.count {
-                        self.offersTableView.reloadData()
-                        self.removeLoadingSpinner()
-                        self.refreshControl.endRefreshing()
+                        self.reloadTable()
                     }
                 }
             }
@@ -77,6 +79,12 @@ class OfferVC: UIViewController {
     
     @objc func refreshOffers() {
         fetchOffers()
+    }
+    
+    func reloadTable() {
+        self.offersTableView.reloadData()
+        self.removeLoadingSpinner()
+        self.refreshControl.endRefreshing()
     }
 }
 
