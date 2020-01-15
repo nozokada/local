@@ -39,3 +39,5 @@ let OFFER_ID = "offerId"
 let CONTENT = "content"
 let TO = "to"
 let FROM = "from"
+
+let MESSAGE_MARGIN: CGFloat = 20

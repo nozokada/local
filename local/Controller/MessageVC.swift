@@ -20,6 +20,7 @@ class MessageVC: UIViewController {
     var refreshControl: UIRefreshControl!
     
     let screenSize = UIScreen.main.bounds
+    let userId = Auth.auth().currentUser!.uid
     
     var offer: Offer!
     var item: Item!
@@ -96,8 +97,7 @@ extension MessageVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = messagesTableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
             as? MessageCell else { return MessageCell() }
-        let messageContent = messages[indexPath.row].content
-        cell.contentLabel.text = messageContent
+        cell.update(message: messages[indexPath.row], userId: userId)
         return cell
     }
 }
@@ -105,7 +105,6 @@ extension MessageVC: UITableViewDataSource, UITableViewDelegate {
 extension MessageVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if messageTextField.text == "" { return false }
-        guard let userId = Auth.auth().currentUser?.uid else { return false }
         let id = UUID().uuidString
         let message = Message(id: id, offerId: offer.id, content: messageTextField.text!, to: item.createdBy, from: userId)
         DataService.shared.uploadMessage(message: message) { success in

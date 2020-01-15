@@ -15,4 +15,14 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func update(message: Message, userId: String) {
+        contentLabel.text = message.content
+        contentLabel.translatesAutoresizingMaskIntoConstraints = false
+        if message.from == userId {
+            contentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -MESSAGE_MARGIN).isActive = true
+        } else {
+            contentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: MESSAGE_MARGIN).isActive = true
+        }
+    }
 }

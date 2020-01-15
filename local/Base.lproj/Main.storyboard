@@ -679,15 +679,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWQ-a7-vMa" customClass="MessageContentLabel" customModule="Local" customModuleProvider="target">
-                                                    <rect key="frame" x="186" y="33.5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWQ-a7-vMa" customClass="MessageContentLabel" customModule="Local" customModuleProvider="target">
+                                                    <rect key="frame" x="283" y="28.5" width="91" height="30.5"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="OWQ-a7-vMa" firstAttribute="centerX" secondItem="osZ-Mf-e9M" secondAttribute="centerX" id="DV0-UC-q1j"/>
                                                 <constraint firstItem="OWQ-a7-vMa" firstAttribute="centerY" secondItem="osZ-Mf-e9M" secondAttribute="centerY" id="vII-Fh-3wC"/>
                                             </constraints>
                                         </tableViewCellContentView>
