@@ -54,13 +54,8 @@ class MessageVC: UIViewController {
     }
     
     func addLoadingSpinner() {
-        loadingSpinner = UIActivityIndicatorView()
-        loadingSpinner.center = CGPoint(x: screenSize.width / 2 - (loadingSpinner?.frame.width)! / 2,
-                                         y: messagesTableView.frame.height / 2 - (loadingSpinner?.frame.width)! / 2)
-        loadingSpinner.style = .large
-        loadingSpinner.color = MAIN_COLOR
+        loadingSpinner = MainIndicatorView(parentView: messagesTableView)
         loadingSpinner.startAnimating()
-        messagesTableView.addSubview(loadingSpinner)
     }
     
     func removeLoadingSpinner() {

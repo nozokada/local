@@ -12,7 +12,7 @@ class BrowseVC: UIViewController {
     
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     
-    var loadingSpinner: UIActivityIndicatorView!
+    var loadingSpinner: MainIndicatorView!
     var refreshControl: UIRefreshControl!
     
     let screenSize = UIScreen.main.bounds
@@ -31,13 +31,8 @@ class BrowseVC: UIViewController {
     }
     
     func addLoadingSpinner() {
-        loadingSpinner = UIActivityIndicatorView()
-        loadingSpinner.center = CGPoint(x: screenSize.width / 2 - (loadingSpinner?.frame.width)! / 2,
-                                         y: itemsCollectionView.frame.height / 2 - (loadingSpinner?.frame.width)! / 2)
-        loadingSpinner.style = .large
-        loadingSpinner.color = MAIN_COLOR
+        loadingSpinner = MainIndicatorView(parentView: itemsCollectionView)
         loadingSpinner.startAnimating()
-        itemsCollectionView.addSubview(loadingSpinner)
     }
     
     func removeLoadingSpinner() {

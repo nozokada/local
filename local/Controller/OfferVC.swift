@@ -34,13 +34,8 @@ class OfferVC: UIViewController {
     }
     
     func addLoadingSpinner() {
-        loadingSpinner = UIActivityIndicatorView()
-        loadingSpinner.center = CGPoint(x: screenSize.width / 2 - (loadingSpinner?.frame.width)! / 2,
-                                         y: offersTableView.frame.height / 2 - (loadingSpinner?.frame.width)! / 2)
-        loadingSpinner.style = .large
-        loadingSpinner.color = MAIN_COLOR
+        loadingSpinner = MainIndicatorView(parentView: offersTableView)
         loadingSpinner.startAnimating()
-        offersTableView.addSubview(loadingSpinner)
     }
     
     func removeLoadingSpinner() {
