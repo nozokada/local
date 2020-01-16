@@ -16,7 +16,7 @@ class MessageVC: UIViewController {
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
-    var loadingSpinner: UIActivityIndicatorView!
+    var loadingSpinner: MainIndicatorView!
     var refreshControl: UIRefreshControl!
     
     let screenSize = UIScreen.main.bounds

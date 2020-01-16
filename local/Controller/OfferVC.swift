@@ -14,7 +14,7 @@ class OfferVC: UIViewController {
     @IBOutlet weak var offerTypesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var offersTableView: UITableView!
     
-    var loadingSpinner: UIActivityIndicatorView!
+    var loadingSpinner: MainIndicatorView!
     var refreshControl: UIRefreshControl!
     
     let screenSize = UIScreen.main.bounds
