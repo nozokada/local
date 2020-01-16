@@ -17,6 +17,10 @@ class OfferCell: UITableViewCell {
         customizeView()
     }
     
+    override func prepareForReuse() {
+        self.itemImageView.image = LOADING_IMAGE
+    }
+    
     func customizeView() {
         itemImageView.layer.cornerRadius = 5
     }
