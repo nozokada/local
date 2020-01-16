@@ -59,6 +59,7 @@ class OfferVC: UIViewController {
     
     @IBAction func offerTypesSegmentedControlChanged(_ sender: UISegmentedControl) {
         buyingSelected = sender.selectedSegmentIndex == 0
+        offers.removeAll()
         addLoadingSpinner()
         fetchOffers()
     }
@@ -66,19 +67,23 @@ class OfferVC: UIViewController {
     func fetchOffers() {
         let offerType = buyingSelected ? FROM : TO
         DataService.shared.getOffers(type: offerType) { (offers) in
-            self.offers = offers
             if offers.count == 0 {
                 self.reloadTable()
                 return
             }
-            for (index, offer) in offers.enumerated() {
-                DataService.shared.getItem(id: offer.itemId) { item in
-                    if let item = item {
-                        self.items[item.id] = item
-                    }
-                    if index + 1 == self.offers.count {
-                        self.reloadTable()
-                    }
+            self.offers = offers
+            self.fetchItemsForOffers()
+        }
+    }
+    
+    func fetchItemsForOffers() {
+        for (index, offer) in offers.enumerated() {
+            DataService.shared.getItem(id: offer.itemId) { item in
+                if let item = item {
+                    self.items[item.id] = item
+                }
+                if index + 1 == self.offers.count {
+                    self.reloadTable()
                 }
             }
         }
