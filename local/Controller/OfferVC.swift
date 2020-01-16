@@ -71,12 +71,12 @@ class OfferVC: UIViewController {
                 self.reloadTable()
                 return
             }
-            for offer in offers {
+            for (index, offer) in offers.enumerated() {
                 DataService.shared.getItem(id: offer.itemId) { item in
                     if let item = item {
                         self.items[item.id] = item
                     }
-                    if self.items.count == self.offers.count {
+                    if index + 1 == self.offers.count {
                         self.reloadTable()
                     }
                 }
