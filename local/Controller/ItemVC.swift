@@ -67,8 +67,12 @@ class ItemVC: UIViewController {
     }
     
     @IBAction func askButtonTapped(_ sender: Any) {
-        disableAskButton()
         guard let userId = Auth.auth().currentUser?.uid else { return }
+        if item.createdBy == userId {
+            debugPrint("You can't make an offer for your item (display alert)")
+            return
+        }
+        disableAskButton()
         DataService.shared.getOffers(type: FROM) { offers in
             for offer in offers {
                 if offer.itemId == self.item.id {
