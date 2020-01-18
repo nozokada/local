@@ -75,7 +75,7 @@ class MessageVC: UIViewController {
     
     func fetchMessages() {
         DataService.shared.getMessages(offer: offer){ (messages) in
-            self.messages = messages.reversed()
+            self.messages = messages
             self.messagesTableView.reloadData()
             self.removeLoadingSpinner()
             self.refreshControl.endRefreshing()
