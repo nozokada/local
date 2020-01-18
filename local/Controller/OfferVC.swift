@@ -67,24 +67,23 @@ class OfferVC: UIViewController {
                 return
             }
             self.offers = offers
-            self.fetchItemsForOffers()
+            self.reloadTable()
         }
     }
     
-    func fetchItemsForOffers() {
-        var processedOfferCount = 0
-        for offer in offers {
-            DataService.shared.getItem(id: offer.itemId) { item in
-                if let item = item {
-                    self.items[item.id] = item
-                }
-                processedOfferCount += 1
-                if processedOfferCount == self.offers.count {
-                    self.reloadTable()
-                }
+    func fetchItem(for offer: Offer, completion: @escaping (Item?) -> ()) {
+        if let item = items[offer.itemId] {
+            completion(item)
+            return
+        }
+        DataService.shared.getItem(id: offer.itemId) { item in
+            if let item = item {
+                self.items[item.id] = item
+                completion(item)
+            } else {
+               completion(nil)
             }
         }
-        
     }
     
     @objc func refreshOffers() {
@@ -107,8 +106,11 @@ extension OfferVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = offersTableView.dequeueReusableCell(withIdentifier: "OfferCell", for: indexPath)
             as? OfferCell else { return OfferCell() }
         let offer = offers[indexPath.row]
-        guard let item = items[offer.itemId] else { return OfferCell() }
-        cell.update(item: item)
+        fetchItem(for: offer) { item in
+            if let item = item {
+                cell.update(item: item)
+            }
+        }
         return cell
     }
     
