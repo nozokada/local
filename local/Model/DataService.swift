@@ -134,8 +134,8 @@ class DataService {
     }
     
     func getMessages(offer: Offer, completion: @escaping ([Message]) ->()) {
-        var messages = [Message]()
-        Firestore.firestore().collection(MESSAGES_REF).whereField(OFFER_ID, isEqualTo: offer.id).order(by: CREATED_TIMESTAMP, descending: true).getDocuments() { (querySnapshot, error) in
+        Firestore.firestore().collection(MESSAGES_REF).whereField(OFFER_ID, isEqualTo: offer.id).order(by: CREATED_TIMESTAMP, descending: true).addSnapshotListener() { (querySnapshot, error) in
+            var messages = [Message]()
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download messages")
                 completion([])

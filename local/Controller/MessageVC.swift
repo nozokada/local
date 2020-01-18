@@ -109,7 +109,7 @@ extension MessageVC: UITextFieldDelegate {
         DataService.shared.uploadMessage(message: message) { success in
             if success {
                 self.messageTextField.text = ""
-                self.fetchMessages()
+//                self.fetchMessages()
             }
         }
         return true
