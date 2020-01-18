@@ -11,18 +11,28 @@ import UIKit
 class MessageCell: UITableViewCell {
 
     @IBOutlet weak var contentLabel: MessageContentLabel!
+    var leadingConstraint: NSLayoutConstraint!
+    var trailingConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        leadingConstraint = contentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: MESSAGE_MARGIN)
+        trailingConstraint = contentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -MESSAGE_MARGIN)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        leadingConstraint.isActive = false
+        leadingConstraint.isActive = false
     }
     
     func update(message: Message, userId: String) {
         contentLabel.text = message.content
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
         if message.from == userId {
-            contentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -MESSAGE_MARGIN).isActive = true
+            trailingConstraint.isActive = true
         } else {
-            contentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: MESSAGE_MARGIN).isActive = true
+            leadingConstraint.isActive = true
         }
     }
 }

@@ -31,6 +31,7 @@ class MessageVC: UIViewController {
         super.viewDidLoad()
         messagesTableView.dataSource = self
         messagesTableView.delegate = self
+        messagesTableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         messageTextField.delegate = self
         
         configureRefreshControl()
@@ -74,7 +75,7 @@ class MessageVC: UIViewController {
     
     func fetchMessages() {
         DataService.shared.getMessages(offer: offer){ (messages) in
-            self.messages = messages
+            self.messages = messages.reversed()
             self.messagesTableView.reloadData()
             self.removeLoadingSpinner()
             self.refreshControl.endRefreshing()
@@ -95,6 +96,7 @@ extension MessageVC: UITableViewDataSource, UITableViewDelegate {
         guard let cell = messagesTableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
             as? MessageCell else { return MessageCell() }
         cell.update(message: messages[indexPath.row], userId: userId)
+        cell.transform = CGAffineTransform(scaleX: 1, y: -1)
         return cell
     }
 }
@@ -110,6 +112,6 @@ extension MessageVC: UITextFieldDelegate {
                 self.fetchMessages()
             }
         }
-        return false
+        return true
      }
 }

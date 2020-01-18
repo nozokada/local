@@ -38,7 +38,7 @@ class MessageContentLabel: UILabel {
     func customizeView() {
         self.textColor = .white
         self.backgroundColor = MAIN_COLOR
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = topInset + bottomInset
         self.clipsToBounds = true
     }
 }

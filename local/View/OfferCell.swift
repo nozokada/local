@@ -18,6 +18,7 @@ class OfferCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         self.itemImageView.image = LOADING_IMAGE
     }
     
