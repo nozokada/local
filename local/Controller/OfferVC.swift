@@ -72,16 +72,19 @@ class OfferVC: UIViewController {
     }
     
     func fetchItemsForOffers() {
-        for (index, offer) in offers.enumerated() {
+        var processedOfferCount = 0
+        for offer in offers {
             DataService.shared.getItem(id: offer.itemId) { item in
                 if let item = item {
                     self.items[item.id] = item
                 }
-                if index + 1 == self.offers.count {
+                processedOfferCount += 1
+                if processedOfferCount == self.offers.count {
                     self.reloadTable()
                 }
             }
         }
+        
     }
     
     @objc func refreshOffers() {
