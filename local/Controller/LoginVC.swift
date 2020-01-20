@@ -13,18 +13,22 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var emailTextField: MainTextField!
     @IBOutlet weak var passwordTextField: MainTextField!
-    
+    @IBOutlet weak var alertMessageLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        guard let email = emailTextField.text,
-            let password = passwordTextField.text else { return }
-        
+        alertMessageLabel.text = ""
+        guard let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty else {
+                alertMessageLabel.text = "Please fill in all fields."
+                return
+        }
         Auth.auth().signIn(withEmail: email, password: password) { (AuthResult, error) in
             if let error = error {
-                debugPrint("Error logging in: \(error.localizedDescription)")
+                self.alertMessageLabel.text = error.localizedDescription
             } else {
                 self.dismiss(animated: true, completion: nil)
             }

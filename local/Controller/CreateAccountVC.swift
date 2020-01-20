@@ -10,11 +10,11 @@ import UIKit
 import Firebase
 
 class CreateAccountVC: UIViewController {
-
-    @IBOutlet weak var alertMessageLabel: UILabel!
+    
     @IBOutlet weak var emailTextField: MainTextField!
     @IBOutlet weak var passwordTextField: MainTextField!
     @IBOutlet weak var usernameTextField: MainTextField!
+    @IBOutlet weak var alertMessageLabel: UILabel!
     @IBOutlet weak var createAccountButton: MainButton!
     @IBOutlet weak var cancelButton: MainButton!
     
