@@ -18,6 +18,7 @@ class ItemVC: UIViewController {
     @IBOutlet weak var askButton: MainButton!
     
     var item: Item!
+    var userId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,11 @@ class ItemVC: UIViewController {
         
         itemPriceLabel.layer.cornerRadius = 5
         itemPriceLabel.clipsToBounds = true
+        
+        askButton.disable()
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        self.userId = userId
+        if item.createdBy != userId { askButton.enable() }
     }
     
     func initData(item: Item) {
@@ -46,11 +52,6 @@ class ItemVC: UIViewController {
     }
     
     @IBAction func askButtonTapped(_ sender: Any) {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
-        if item.createdBy == userId {
-            debugPrint("You can't make an offer for your item (display alert)")
-            return
-        }
         askButton.disable()
         DataService.shared.getOffers(type: FROM, userId: userId) { offers, error in
             for offer in offers {
@@ -60,7 +61,7 @@ class ItemVC: UIViewController {
                 }
             }
             let id = UUID().uuidString
-            let offer = Offer(id: id, itemId: self.item.id, to: self.item.createdBy, from: userId)
+            let offer = Offer(id: id, itemId: self.item.id, to: self.item.createdBy, from: self.userId)
             self.openMessageVC(offer: offer, item: self.item)
         }
     }

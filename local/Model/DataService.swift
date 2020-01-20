@@ -43,7 +43,7 @@ class DataService {
 
     func getItems(completion: @escaping (([Item], Error?) -> ())) {
         var items = [Item]()
-        Firestore.firestore().collection(ITEMS_REF).order(by: CREATED_TIMESTAMP, descending: true).getDocuments() { (querySnapshot, error) in
+        Firestore.firestore().collection(ITEMS_REF).order(by: CREATED_TIMESTAMP, descending: true).getDocuments() { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download items")
                 completion([], error)
