@@ -87,6 +87,19 @@ class OfferVC: UIViewController {
         }
     }
     
+    func fetchUsername(for offer: Offer, completion: @escaping (String?) -> ()) {
+        let userId = buyingSelected ? offer.to : offer.from
+        DataService.shared.getUsername(id: userId) { username, error in
+            if let error = error {
+                debugPrint("Error fetching username: \(error.localizedDescription)")
+                completion(nil)
+            }
+            else {
+                completion(username)
+            }
+        }
+    }
+    
     @objc func refreshOffers() {
         fetchOffers()
     }
@@ -109,7 +122,12 @@ extension OfferVC: UITableViewDataSource, UITableViewDelegate {
         let offer = offers[indexPath.row]
         fetchItem(for: offer) { item in
             if let item = item {
-                cell.update(item: item)
+                cell.updateItemData(item: item)
+            }
+        }
+        fetchUsername(for: offer) { username in
+            if let username = username {
+                cell.usernameLabel.text = username
             }
         }
         return cell

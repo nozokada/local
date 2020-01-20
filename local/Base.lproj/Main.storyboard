@@ -624,6 +624,12 @@
                                                     <color key="textColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkx-Bg-Eop">
+                                                    <rect key="frame" x="129" y="112" width="257" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.14001739029999999" green="0.26080769300000001" blue="0.34510928390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="b1Z-1h-FgZ" firstAttribute="leading" secondItem="BgT-xG-TBF" secondAttribute="trailing" constant="8" id="D1e-o7-WWd"/>
@@ -632,12 +638,16 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="BgT-xG-TBF" secondAttribute="bottom" id="P1L-jw-SM9"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="b1Z-1h-FgZ" secondAttribute="trailing" constant="8" id="e3k-7C-B03"/>
                                                 <constraint firstItem="BgT-xG-TBF" firstAttribute="top" secondItem="aKt-YN-PLK" secondAttribute="topMargin" id="gSS-Yj-sVG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Tkx-Bg-Eop" secondAttribute="bottom" id="gml-h8-gyh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Tkx-Bg-Eop" secondAttribute="trailing" constant="8" id="nsV-mD-dx4"/>
+                                                <constraint firstItem="Tkx-Bg-Eop" firstAttribute="leading" secondItem="BgT-xG-TBF" secondAttribute="trailing" constant="8" id="tN9-eD-jS8"/>
                                                 <constraint firstItem="BgT-xG-TBF" firstAttribute="leading" secondItem="aKt-YN-PLK" secondAttribute="leadingMargin" id="vBw-y2-LpY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="itemImageView" destination="BgT-xG-TBF" id="ydI-lP-bAi"/>
                                             <outlet property="itemTitleLabel" destination="b1Z-1h-FgZ" id="LpB-yL-VaX"/>
+                                            <outlet property="usernameLabel" destination="Tkx-Bg-Eop" id="Xyx-O1-qmT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

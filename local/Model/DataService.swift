@@ -40,6 +40,18 @@ class DataService {
             }
         }
     }
+    
+    func getUsername(id: String, completion: @escaping (String?, Error?) -> ()) {
+        Firestore.firestore().collection(USERS_REF).document(id).getDocument { document, error in
+            guard let document = document, document.exists else {
+                debugPrint("Failed to download item")
+                completion(nil, error)
+                return
+            }
+            let userData = document.data()
+            completion(userData?[USERNAME] as? String, nil)
+        }
+    }
 
     func getItems(completion: @escaping (([Item], Error?) -> ())) {
         var items = [Item]()

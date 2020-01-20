@@ -12,6 +12,7 @@ class OfferCell: UITableViewCell {
 
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemTitleLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func awakeFromNib() {
         customizeView()
@@ -27,7 +28,7 @@ class OfferCell: UITableViewCell {
         itemImageView.layer.cornerRadius = 5
     }
     
-    func update(item: Item) {
+    func updateItemData(item: Item) {
         itemTitleLabel.text = item.title
         item.photo.download() { (image) in
             self.itemImageView.image = image
