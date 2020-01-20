@@ -14,7 +14,7 @@ class DataService {
     static let shared = DataService()
     
     func createUser(email: String, password: String, username: String, completion: @escaping (Bool, Error?) -> ()) {
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             guard let user = authResult?.user else {
                 debugPrint("Failed to create authentication")
                 completion(false, error)
@@ -67,7 +67,7 @@ class DataService {
     }
     
     func getItem(id: String, completion: @escaping ((Item?, Error?) -> ())) {
-        Firestore.firestore().collection(ITEMS_REF).document(id).getDocument { (document, error) in
+        Firestore.firestore().collection(ITEMS_REF).document(id).getDocument { document, error in
             guard let document = document, document.exists else {
                 debugPrint("Failed to download item")
                 completion(nil, error)
@@ -109,7 +109,7 @@ class DataService {
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         let data = image.jpegData(compressionQuality: IMAGE_COMPRESSION_RATE)!
-        storageRef.putData(data, metadata: metadata) { (metadata, error) in
+        storageRef.putData(data, metadata: metadata) { metadata, error in
              if let error = error {
                 debugPrint("Failed to upload image")
                 completion(false, error)
@@ -122,7 +122,7 @@ class DataService {
     
     func getOffers(type: String, userId: String, completion: @escaping (([Offer], Error?) -> ())) {
         var offers = [Offer]()
-        Firestore.firestore().collection(OFFERS_REF).whereField(type, isEqualTo: userId).order(by: CREATED_TIMESTAMP, descending: true).getDocuments() { (querySnapshot, error) in
+        Firestore.firestore().collection(OFFERS_REF).whereField(type, isEqualTo: userId).order(by: CREATED_TIMESTAMP, descending: true).getDocuments() { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download offers")
                 completion([], error)
@@ -161,7 +161,7 @@ class DataService {
     }
     
     func getMessages(offer: Offer, completion: @escaping ([Message], Error?) ->()) {
-        Firestore.firestore().collection(MESSAGES_REF).whereField(OFFER_ID, isEqualTo: offer.id).order(by: CREATED_TIMESTAMP, descending: true).addSnapshotListener() { (querySnapshot, error) in
+        Firestore.firestore().collection(MESSAGES_REF).whereField(OFFER_ID, isEqualTo: offer.id).order(by: CREATED_TIMESTAMP, descending: true).addSnapshotListener() { querySnapshot, error in
             var messages = [Message]()
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download messages")
