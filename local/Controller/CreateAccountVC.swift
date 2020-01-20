@@ -11,6 +11,7 @@ import Firebase
 
 class CreateAccountVC: UIViewController {
 
+    @IBOutlet weak var alertMessageLabel: UILabel!
     @IBOutlet weak var emailTextField: MainTextField!
     @IBOutlet weak var passwordTextField: MainTextField!
     @IBOutlet weak var usernameTextField: MainTextField!
@@ -24,33 +25,18 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func createAccountButtonTapped(_ sender: Any) {
-        guard let email = emailTextField.text,
-            let password = passwordTextField.text,
-            let username = usernameTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            guard let user = authResult?.user, error == nil else {
-                debugPrint("Error creating user: \(error!.localizedDescription)")
+        alertMessageLabel.text = ""
+        guard let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty,
+            let username = usernameTextField.text, !username.isEmpty else {
+                alertMessageLabel.text = "Please fill in all fields."
                 return
-            }
-            let changeProfileRequest = user.createProfileChangeRequest()
-            changeProfileRequest.displayName = username
-            changeProfileRequest.commitChanges(completion: { (error) in
-                if let error = error {
-                    debugPrint(error.localizedDescription)
-                }
-            })
-
-            Firestore.firestore().collection(USERS_REF).document(user.uid).setData([
-                USERNAME : username,
-                CREATED_TIMESTAMP : FieldValue.serverTimestamp()
-            ]) { error in
-                if let error = error {
-                    debugPrint(error.localizedDescription)
-                } else {
-                    debugPrint("Account was successfully created")
-                    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-                }
+        }
+        DataService.shared.createUser(email: email, password: password, username: username) { success, errorDesc in
+            if success {
+                self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            } else {
+                self.alertMessageLabel.text = errorDesc
             }
         }
     }

@@ -12,6 +12,34 @@ import Firebase
 class DataService {
     
     static let shared = DataService()
+    
+    func createUser(email: String, password: String, username: String, completion: @escaping (Bool, String?) -> ()) {
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            guard let user = authResult?.user else {
+                debugPrint("Failed to create authentication")
+                completion(false, error?.localizedDescription)
+                return
+            }
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = username
+            changeRequest.commitChanges() { error in
+                if let _ = error {
+                    debugPrint("Failed to change user display name")
+                }
+            }
+            Firestore.firestore().collection(USERS_REF).document(user.uid).setData([
+                USERNAME : username,
+                CREATED_TIMESTAMP : FieldValue.serverTimestamp()
+            ]) { error in
+                if let error = error {
+                    debugPrint("Failed to create user")
+                    completion(false, error.localizedDescription)
+                } else {
+                    completion(true, nil)
+                }
+            }
+        }
+    }
 
     func getItems(completion: @escaping (([Item]) -> ())) {
         var items = [Item]()
