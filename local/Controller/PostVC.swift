@@ -13,7 +13,7 @@ class PostVC: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var selectedImageHelperView: UIView!
     @IBOutlet weak var chooseImageButton: MainButton!
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var titleTextField: MainTextField!
     @IBOutlet weak var nextButton: MainButton!
     
     var crossButton: UIButton!

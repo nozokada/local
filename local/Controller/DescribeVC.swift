@@ -11,7 +11,7 @@ import UIKit
 class DescribeVC: UIViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var priceTextField: MainTextField!
     @IBOutlet weak var nextButton: MainButton!
     
     var itemImage: UIImage!
