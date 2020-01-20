@@ -11,10 +11,11 @@ import UIKit
 @IBDesignable
 class MessageContentLabel: UILabel {
     
-    @IBInspectable var topInset: CGFloat = 5.0
-    @IBInspectable var bottomInset: CGFloat = 5.0
-    @IBInspectable var leftInset: CGFloat = 7.0
-    @IBInspectable var rightInset: CGFloat = 7.0
+    @IBInspectable var topInset: CGFloat = 6.0
+    @IBInspectable var bottomInset: CGFloat = 6.0
+    @IBInspectable var leftInset: CGFloat = 10.0
+    @IBInspectable var rightInset: CGFloat = 10.0
+    @IBInspectable var borderWidth: CGFloat = 1.0
 
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
@@ -36,9 +37,16 @@ class MessageContentLabel: UILabel {
     }
 
     func customizeView() {
-        self.textColor = .white
-        self.backgroundColor = MAIN_COLOR
-        self.layer.cornerRadius = topInset + bottomInset
+        setColors(textColor: .white, backgroundColor: MAIN_COLOR)
+        self.layer.borderColor = MAIN_COLOR.cgColor
+        self.layer.borderWidth = borderWidth
+        self.layer.cornerRadius = topInset + bottomInset + borderWidth * 2
         self.clipsToBounds = true
+        self.numberOfLines = 0
+    }
+    
+    func setColors(textColor: UIColor, backgroundColor: UIColor) {
+        self.textColor = textColor
+        self.backgroundColor = backgroundColor
     }
 }
