@@ -37,23 +37,13 @@ class ReviewVC: UIViewController {
         itemPrice = price
     }
     
-    func enablePostButton() {
-        postButton.alpha = 1.0
-        postButton.isEnabled = true
-    }
-    
-    func disablePostButton() {
-        postButton.alpha = 0.5
-        postButton.isEnabled = false
-    }
-    
     func uploadItemImage(itemImageRef: StorageReference) {
         DataService.shared.uploadItemImage(image: itemImage, storageRef: itemImageRef) { success in
             if success {
                 self.dismiss(animated: true, completion: nil)
             } else {
                 debugPrint("Failed to upload item image (display alert)")
-                self.enablePostButton()
+                self.postButton.enable()
             }
         }
     }
@@ -73,7 +63,7 @@ class ReviewVC: UIViewController {
                 self.uploadItemImage(itemImageRef: itemImageRef)
             } else {
                 debugPrint("Failed to upload item (display alert)")
-                self.enablePostButton()
+                self.postButton.enable()
             }
         }
     }
@@ -81,6 +71,6 @@ class ReviewVC: UIViewController {
     @IBAction func postButtonTapped(_ sender: Any) {
         let id = UUID().uuidString
         uploadItem(id: id)
-        disablePostButton()
+        postButton.disable()
     }
 }

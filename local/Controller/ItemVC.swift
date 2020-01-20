@@ -37,16 +37,6 @@ class ItemVC: UIViewController {
         self.item = item
     }
     
-    func enableAskButton() {
-        askButton.alpha = 1.0
-        askButton.isEnabled = true
-    }
-    
-    func disableAskButton() {
-        askButton.alpha = 0.5
-        askButton.isEnabled = false
-    }
-    
     func uploadOffer(id: String, userId: String) {
         let offer = Offer(id: id, itemId: item.id, to: item.createdBy, from: userId)
         DataService.shared.uploadOffer(offer: offer, item: item) { success in
@@ -63,7 +53,7 @@ class ItemVC: UIViewController {
             messageVC.initData(offer: offer, item: self.item, receipient: offer.to)
             self.present(messageVC, animated: true, completion: nil)
         }
-        self.enableAskButton()
+        askButton.enable()
     }
     
     @IBAction func askButtonTapped(_ sender: Any) {
@@ -72,7 +62,7 @@ class ItemVC: UIViewController {
             debugPrint("You can't make an offer for your item (display alert)")
             return
         }
-        disableAskButton()
+        askButton.disable()
         DataService.shared.getOffers(type: FROM) { offers in
             for offer in offers {
                 if offer.itemId == self.item.id {

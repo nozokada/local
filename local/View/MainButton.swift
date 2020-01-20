@@ -29,4 +29,14 @@ class MainButton: UIButton {
         self.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
         self.titleLabel?.font = UIFont(name: fontName, size: fontSize)
     }
+    
+    func enable() {
+        self.alpha = 1.0
+        isEnabled = true
+    }
+    
+    func disable() {
+        self.alpha = 0.5
+        isEnabled = false
+    }
 }

@@ -52,21 +52,11 @@ class PostVC: UIViewController, UINavigationControllerDelegate {
         chooseImageButton.isHidden = false
     }
     
-    func enableNextButton() {
-        nextButton.alpha = 1.0
-        nextButton.isEnabled = true
-    }
-    
-    func disableNextButton() {
-        nextButton.alpha = 0.5
-        nextButton.isEnabled = false
-    }
-    
     func checkRequiredFields() {
         if titleTextField.text != "" && selectedImageView.image != nil {
-            enableNextButton()
+            nextButton.enable()
         } else {
-            disableNextButton()
+            nextButton.disable()
         }
     }
     

@@ -33,20 +33,10 @@ class DescribeVC: UIViewController {
     
     func checkRequiredFields() {
         if priceTextField.text != "" {
-            enableNextButton()
+            nextButton.enable()
         } else {
-            disableNextButton()
+            nextButton.disable()
         }
-    }
-    
-    func enableNextButton() {
-        nextButton.alpha = 1.0
-        nextButton.isEnabled = true
-    }
-    
-    func disableNextButton() {
-        nextButton.alpha = 0.5
-        nextButton.isEnabled = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
