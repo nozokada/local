@@ -38,7 +38,7 @@ class ReviewVC: UIViewController {
     }
     
     func uploadItemImage(itemImageRef: StorageReference) {
-        DataService.shared.uploadItemImage(image: itemImage, storageRef: itemImageRef) { success in
+        DataService.shared.uploadItemImage(image: itemImage, storageRef: itemImageRef) { success, error in
             if success {
                 self.dismiss(animated: true, completion: nil)
             } else {
@@ -58,7 +58,7 @@ class ReviewVC: UIViewController {
         
         let item = Item(id: id, title: itemTitle, price: itemPrice, description: itemDescription, createdBy: userId, imagePaths: [imagePath])
         
-        DataService.shared.uploadItem(item: item) { success in
+        DataService.shared.uploadItem(item: item) { success, error in
             if success {
                 self.uploadItemImage(itemImageRef: itemImageRef)
             } else {

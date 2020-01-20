@@ -50,7 +50,7 @@ class BrowseVC: UIViewController {
     }
     
     func fetchItems() {
-        DataService.shared.getItems() { (items) in
+        DataService.shared.getItems() { items, error in
             self.items = items
             self.itemsCollectionView.reloadData()
             self.removeLoadingSpinner()

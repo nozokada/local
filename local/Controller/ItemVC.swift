@@ -37,17 +37,6 @@ class ItemVC: UIViewController {
         self.item = item
     }
     
-    func uploadOffer(id: String, userId: String) {
-        let offer = Offer(id: id, itemId: item.id, to: item.createdBy, from: userId)
-        DataService.shared.uploadOffer(offer: offer, item: item) { success in
-            if success {
-                self.openMessageVC(offer: offer, item: self.item)
-            } else {
-                debugPrint("Failed to upload offer (display alert)")
-            }
-        }
-    }
-    
     func openMessageVC(offer: Offer, item: Item) {
         if let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "MessageVC") as? MessageVC {
             messageVC.initData(offer: offer, item: self.item, receipient: offer.to)
@@ -63,7 +52,7 @@ class ItemVC: UIViewController {
             return
         }
         askButton.disable()
-        DataService.shared.getOffers(type: FROM) { offers in
+        DataService.shared.getOffers(type: FROM, userId: userId) { offers, error in
             for offer in offers {
                 if offer.itemId == self.item.id {
                     self.openMessageVC(offer: offer, item: self.item)
@@ -71,7 +60,8 @@ class ItemVC: UIViewController {
                 }
             }
             let id = UUID().uuidString
-            self.uploadOffer(id: id, userId: userId)
+            let offer = Offer(id: id, itemId: self.item.id, to: self.item.createdBy, from: userId)
+            self.openMessageVC(offer: offer, item: self.item)
         }
     }
 }

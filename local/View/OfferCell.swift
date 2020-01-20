@@ -19,6 +19,7 @@ class OfferCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.itemTitleLabel.text = ""
         self.itemImageView.image = LOADING_IMAGE
     }
     

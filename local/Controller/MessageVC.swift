@@ -26,6 +26,7 @@ class MessageVC: UIViewController {
     var item: Item!
     var receipient: String!
     var messages = [Message]()
+    var newlyCreated = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,11 +75,21 @@ class MessageVC: UIViewController {
     }
     
     func fetchMessages() {
-        DataService.shared.getMessages(offer: offer){ (messages) in
+        DataService.shared.getMessages(offer: offer) { messages, error in
+            self.newlyCreated = messages.count == 0 && error == nil
             self.messages = messages
             self.messagesTableView.reloadData()
             self.removeLoadingSpinner()
             self.refreshControl.endRefreshing()
+        }
+    }
+    
+    func uploadMessage(id: String) {
+        let message = Message(id: id, offerId: offer.id, content: messageTextField.text!, to: receipient, from: userId)
+        DataService.shared.uploadMessage(message: message) { success, error in
+            if success {
+                self.messageTextField.text = ""
+            }
         }
     }
     
@@ -103,13 +114,15 @@ extension MessageVC: UITableViewDataSource, UITableViewDelegate {
 
 extension MessageVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if messageTextField.text == "" { return false }
+        if messageTextField.text == "" { return true }
         let id = UUID().uuidString
-        let message = Message(id: id, offerId: offer.id, content: messageTextField.text!, to: receipient, from: userId)
-        DataService.shared.uploadMessage(message: message) { success in
-            if success {
-                self.messageTextField.text = ""
+        if newlyCreated {
+            DataService.shared.uploadOffer(offer: offer, item: item) { success, error in
+                if let _ = error { return }
+                self.uploadMessage(id: id)
             }
+        } else {
+            uploadMessage(id: id)
         }
         return true
      }

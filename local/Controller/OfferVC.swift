@@ -60,8 +60,9 @@ class OfferVC: UIViewController {
     }
     
     func fetchOffers() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
         let offerType = buyingSelected ? FROM : TO
-        DataService.shared.getOffers(type: offerType) { (offers) in
+        DataService.shared.getOffers(type: offerType, userId: userId) { offers, error in
             if offers.count == 0 {
                 self.reloadTable()
                 return
@@ -76,7 +77,7 @@ class OfferVC: UIViewController {
             completion(item)
             return
         }
-        DataService.shared.getItem(id: offer.itemId) { item in
+        DataService.shared.getItem(id: offer.itemId) { item, error in
             if let item = item {
                 self.items[item.id] = item
                 completion(item)

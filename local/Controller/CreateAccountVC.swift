@@ -33,11 +33,11 @@ class CreateAccountVC: UIViewController {
                 return
         }
         createAccountButton.disable()
-        DataService.shared.createUser(email: email, password: password, username: username) { success, errorDesc in
+        DataService.shared.createUser(email: email, password: password, username: username) { success, error in
             if success {
                 self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
             } else {
-                self.alertMessageLabel.text = errorDesc
+                self.alertMessageLabel.text = error?.localizedDescription
             }
             self.createAccountButton.enable()
         }
