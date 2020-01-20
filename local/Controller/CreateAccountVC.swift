@@ -32,12 +32,14 @@ class CreateAccountVC: UIViewController {
                 alertMessageLabel.text = "Please fill in all fields."
                 return
         }
+        createAccountButton.disable()
         DataService.shared.createUser(email: email, password: password, username: username) { success, errorDesc in
             if success {
                 self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
             } else {
                 self.alertMessageLabel.text = errorDesc
             }
+            self.createAccountButton.enable()
         }
     }
     

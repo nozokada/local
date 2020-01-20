@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="alertMessageLabel" destination="csG-LM-gY7" id="jC3-PG-KJZ"/>
                         <outlet property="emailTextField" destination="UXs-XX-acv" id="ZUu-Xd-rBF"/>
+                        <outlet property="loginButton" destination="RZB-Sg-exf" id="ZX1-1Q-B0G"/>
                         <outlet property="passwordTextField" destination="989-h7-OO3" id="dbZ-L4-xro"/>
                     </connections>
                 </viewController>

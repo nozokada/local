@@ -13,6 +13,7 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var emailTextField: MainTextField!
     @IBOutlet weak var passwordTextField: MainTextField!
+    @IBOutlet weak var loginButton: MainButton!
     @IBOutlet weak var alertMessageLabel: UILabel!
 
     override func viewDidLoad() {
@@ -26,12 +27,14 @@ class LoginVC: UIViewController {
                 alertMessageLabel.text = "Please fill in all fields."
                 return
         }
+        loginButton.disable()
         Auth.auth().signIn(withEmail: email, password: password) { (AuthResult, error) in
             if let error = error {
                 self.alertMessageLabel.text = error.localizedDescription
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
+            self.loginButton.enable()
         }
     }
 }
