@@ -85,10 +85,12 @@ class MessageVC: UIViewController {
     }
     
     func uploadMessage(id: String) {
-        let message = Message(id: id, offerId: offer.id, content: messageTextField.text!, to: receipient, from: userId)
+        guard let messageContent = messageTextField.text else { return }
+        let message = Message(id: id, offerId: offer.id, content: messageContent, to: receipient, from: userId)
+        self.messageTextField.text = ""
         DataService.shared.uploadMessage(message: message) { success, error in
-            if success {
-                self.messageTextField.text = ""
+            if let _ = error {
+                self.messageTextField.text = messageContent
             }
         }
     }
