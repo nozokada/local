@@ -99,11 +99,6 @@ class DataService {
     }
     
     func uploadItem(item: Item, completion: @escaping (Bool, Error?) -> ()) {
-        let words = item.title.lowercased().split(separator: " ") +
-            item.description.lowercased().split(separator: " ")
-        let tokensArray = words.lazy.map { ($0, true) }
-        let tokens = Dictionary(tokensArray, uniquingKeysWith: { (first, _) in first })
-
         Firestore.firestore().collection(ITEMS_REF).document(item.id).setData([
             TITLE: item.title,
             DESCRIPTION: item.description,
@@ -111,7 +106,7 @@ class DataService {
             IMAGE_PATHS: item.imagePaths,
             CREATED_BY: item.createdBy,
             CREATED_TIMESTAMP: FieldValue.serverTimestamp(),
-            TOKENS: tokens
+            TOKENS: generateTokens(item: item)
         ]) { error in
             if let error = error {
                 debugPrint("Failed to upload item")
@@ -121,6 +116,13 @@ class DataService {
                 completion(true, nil)
             }
         }
+    }
+    
+    func generateTokens(item: Item) -> Dictionary<String.SubSequence, Bool> {
+        let words = item.title.lowercased().split(separator: " ") +
+            item.description.lowercased().split(separator: " ")
+        let tokensArray = words.lazy.map { ($0, true) }
+        return Dictionary(tokensArray, uniquingKeysWith: { (first, _) in first })
     }
     
     func uploadItemImage(image: UIImage, storageRef: StorageReference, completion: @escaping (Bool, Error?) -> ()) {
