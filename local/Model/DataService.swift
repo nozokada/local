@@ -99,13 +99,19 @@ class DataService {
     }
     
     func uploadItem(item: Item, completion: @escaping (Bool, Error?) -> ()) {
+        let words = item.title.lowercased().split(separator: " ") +
+            item.description.lowercased().split(separator: " ")
+        let tokensArray = words.lazy.map { ($0, true) }
+        let tokens = Dictionary(tokensArray, uniquingKeysWith: { (first, _) in first })
+
         Firestore.firestore().collection(ITEMS_REF).document(item.id).setData([
             TITLE: item.title,
             DESCRIPTION: item.description,
             PRICE: item.price,
             IMAGE_PATHS: item.imagePaths,
-            CREATED_BY : item.createdBy,
-            CREATED_TIMESTAMP : FieldValue.serverTimestamp()
+            CREATED_BY: item.createdBy,
+            CREATED_TIMESTAMP: FieldValue.serverTimestamp(),
+            TOKENS: tokens
         ]) { error in
             if let error = error {
                 debugPrint("Failed to upload item")

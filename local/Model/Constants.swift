@@ -27,6 +27,7 @@ let DESCRIPTION = "description"
 let PRICE = "price"
 let IMAGE_PATHS = "imagePaths"
 let CREATED_BY = "createdBy"
+let TOKENS = "tokens"
 
 let CURRENCY_SYMBOL = "$"
 
