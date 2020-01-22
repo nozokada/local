@@ -15,7 +15,6 @@ class BrowseVC: UIViewController {
     var loadingSpinner: MainIndicatorView!
     var refreshControl: UIRefreshControl!
     
-    let screenSize = UIScreen.main.bounds
     let cellHorizontalPaddingSize: CGFloat = 6
     
     var items = [Item]()

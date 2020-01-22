@@ -19,7 +19,6 @@ class MessageVC: UIViewController {
     var loadingSpinner: MainIndicatorView!
     var refreshControl: UIRefreshControl!
     
-    let screenSize = UIScreen.main.bounds
     let userId = Auth.auth().currentUser!.uid
     
     var offer: Offer!

@@ -17,8 +17,6 @@ class OfferVC: UIViewController {
     var loadingSpinner: MainIndicatorView!
     var refreshControl: UIRefreshControl!
     
-    let screenSize = UIScreen.main.bounds
-    
     var offers = [Offer]()
     var items = [String: Item]()
     var buyingSelected = true
