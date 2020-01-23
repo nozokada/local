@@ -11,6 +11,7 @@ import UIKit
 class BrowseVC: UIViewController {
     
     @IBOutlet weak var itemsCollectionView: UICollectionView!
+    @IBOutlet weak var searchTextField: MainTextField!
     
     var loadingSpinner: MainIndicatorView!
     var refreshControl: UIRefreshControl!
@@ -18,11 +19,13 @@ class BrowseVC: UIViewController {
     let cellHorizontalPaddingSize: CGFloat = 6
     
     var items = [Item]()
+    var keywords = [Substring]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         itemsCollectionView.dataSource = self
         itemsCollectionView.delegate = self
+        searchTextField.delegate = self
         
         configureRefreshControl()
         addLoadingSpinner()
@@ -49,7 +52,7 @@ class BrowseVC: UIViewController {
     }
     
     func fetchItems() {
-        DataService.shared.getItems() { items, error in
+        DataService.shared.getItems(keywords: keywords) { items, error in
             self.items = items
             self.itemsCollectionView.reloadData()
             self.removeLoadingSpinner()
@@ -90,5 +93,14 @@ extension BrowseVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: cellHorizontalPaddingSize, bottom: 0, right: cellHorizontalPaddingSize)
+    }
+}
+
+extension BrowseVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        keywords = searchTextField.text!.lowercased().split(separator: " ")
+        addLoadingSpinner()
+        fetchItems()
+        return true
     }
 }

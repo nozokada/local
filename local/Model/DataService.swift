@@ -53,9 +53,13 @@ class DataService {
         }
     }
 
-    func getItems(completion: @escaping (([Item], Error?) -> ())) {
+    func getItems(keywords: [Substring], completion: @escaping (([Item], Error?) -> ())) {
         var items = [Item]()
-        Firestore.firestore().collection(ITEMS_REF).order(by: CREATED_TIMESTAMP, descending: true).getDocuments() { querySnapshot, error in
+        var query = Firestore.firestore().collection(ITEMS_REF).limit(to: 1000)
+        for keyword in keywords {
+            query = query.whereField("tokens.\(keyword)", isEqualTo: true)
+        }
+        query.getDocuments() { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 debugPrint("Failed to download items")
                 completion([], error)
@@ -118,7 +122,7 @@ class DataService {
         }
     }
     
-    func generateTokens(item: Item) -> Dictionary<String.SubSequence, Bool> {
+    func generateTokens(item: Item) -> Dictionary<Substring, Bool> {
         let sourceString = "\(item.title) \(item.description)"
         let alphanumericOnlyString = removeNonAlphanumericCharacters(from: sourceString)
         let wordsArray = alphanumericOnlyString.lowercased().split(separator: " ")
