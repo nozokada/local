@@ -119,10 +119,16 @@ class DataService {
     }
     
     func generateTokens(item: Item) -> Dictionary<String.SubSequence, Bool> {
-        let words = item.title.lowercased().split(separator: " ") +
-            item.description.lowercased().split(separator: " ")
-        let tokensArray = words.lazy.map { ($0, true) }
+        let sourceString = "\(item.title) \(item.description)"
+        let alphanumericOnlyString = removeNonAlphanumericCharacters(from: sourceString)
+        let wordsArray = alphanumericOnlyString.lowercased().split(separator: " ")
+        let tokensArray = wordsArray.lazy.map { ($0, true) }
         return Dictionary(tokensArray, uniquingKeysWith: { (first, _) in first })
+    }
+    
+    func removeNonAlphanumericCharacters(from string: String) -> String{
+        let nonAlphanumericCharacterSet = CharacterSet.alphanumerics.inverted
+        return string.components(separatedBy: nonAlphanumericCharacterSet).joined(separator: " ")
     }
     
     func uploadItemImage(image: UIImage, storageRef: StorageReference, completion: @escaping (Bool, Error?) -> ()) {
