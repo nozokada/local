@@ -23,6 +23,7 @@ class ItemCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        itemPriceLabel.text = ""
         imageDownloadTask?.cancel()
         itemImageView.image = LOADING_IMAGE
     }
