@@ -19,6 +19,7 @@ class OfferVC: UIViewController {
     
     var offers = [Offer]()
     var items = [String: Item]()
+    var usernames = [String: String]()
     var buyingSelected = true
     
     override func viewDidLoad() {
@@ -56,7 +57,6 @@ class OfferVC: UIViewController {
     
     @IBAction func offerTypesSegmentedControlChanged(_ sender: UISegmentedControl) {
         buyingSelected = sender.selectedSegmentIndex == 0
-        offers.removeAll()
         addLoadingSpinner()
         fetchOffers()
     }
@@ -65,10 +65,6 @@ class OfferVC: UIViewController {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let offerType = buyingSelected ? FROM : TO
         DataService.shared.getOffers(type: offerType, userId: userId) { offers, error in
-//            if offers.count == 0 {
-//                self.reloadTable()
-//                return
-//            }
             self.offers = offers
             self.reloadTable()
         }
@@ -80,23 +76,28 @@ class OfferVC: UIViewController {
             return
         }
         DataService.shared.getItem(id: offer.itemId) { item, error in
-            if let item = item {
-                self.items[item.id] = item
-                completion(item)
+            if let error = error {
+                debugPrint("Error fetching item: \(error.localizedDescription)")
+                completion(nil)
             } else {
-               completion(nil)
+                self.items[offer.itemId] = item
+                completion(item)
             }
         }
     }
     
     func fetchUsername(for offer: Offer, completion: @escaping (String?) -> ()) {
         let userId = buyingSelected ? offer.to : offer.from
+        if let username = usernames[userId] {
+            completion(username)
+            return
+        }
         DataService.shared.getUsername(id: userId) { username, error in
             if let error = error {
                 debugPrint("Error fetching username: \(error.localizedDescription)")
                 completion(nil)
-            }
-            else {
+            } else {
+                self.usernames[userId] = username
                 completion(username)
             }
         }
