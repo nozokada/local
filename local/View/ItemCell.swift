@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class ItemCell: UICollectionViewCell {
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemPriceLabel: ItemPriceLabel!
     
+    var imageDownloadTask: StorageDownloadTask?
+    
     override func awakeFromNib() {
+        super.awakeFromNib()
         customizeView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.itemImageView.image = LOADING_IMAGE
+        imageDownloadTask?.cancel()
+        itemImageView.image = LOADING_IMAGE
     }
     
     func customizeView() {
@@ -28,7 +33,7 @@ class ItemCell: UICollectionViewCell {
     
     func update(item: Item) {
         itemPriceLabel.text = " \(CURRENCY_SYMBOL)\(item.price) "
-        item.photo.download() { (image) in
+        imageDownloadTask = item.photo.download() { (image) in
             self.itemImageView.image = image
         }
     }

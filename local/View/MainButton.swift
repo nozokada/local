@@ -16,6 +16,7 @@ class MainButton: UIButton {
     let cornerRadius: CGFloat = 5
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         customizeView()
     }
     

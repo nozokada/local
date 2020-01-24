@@ -54,6 +54,9 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseUI/Storage (8.4.1):
+    - Firebase/Storage (~> 6.0)
+    - SDWebImage (~> 5.0)
   - GoogleDataTransport (3.0.1)
   - GoogleDataTransportCCTSupport (1.2.1):
     - GoogleDataTransport (~> 3.0)
@@ -97,11 +100,15 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
+  - SDWebImage (5.5.1):
+    - SDWebImage/Core (= 5.5.1)
+  - SDWebImage/Core (5.5.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Storage
+  - FirebaseUI/Storage
   - IQKeyboardManagerSwift
 
 SPEC REPOS:
@@ -115,6 +122,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnosticsInterop
     - FirebaseFirestore
     - FirebaseStorage
+    - FirebaseUI
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
@@ -125,6 +133,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SDWebImage
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
@@ -136,6 +145,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
   FirebaseFirestore: bb8315fa13a15ea8977e940496b74ba6ad9071f2
   FirebaseStorage: 93fe2f8190a01bfb2b2c4932df7d679744c4ef1d
+  FirebaseUI: 69f7e480265758a9a9ea39915694b0949bcab23f
   GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
@@ -146,7 +156,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
+  SDWebImage: 1245d058b7b8f59adef7a6da6bbafd4f1ab67041
 
-PODFILE CHECKSUM: b755b611241f9cc4ca5a0597edc48038c4ce7a79
+PODFILE CHECKSUM: 6f470d04be162667694ef242a7a11b5b2bd86fd9
 
 COCOAPODS: 1.8.4

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 
 class ItemPhoto {
     
@@ -18,11 +19,11 @@ class ItemPhoto {
         self.path = path
     }
     
-    func download(completion: @escaping (UIImage?) -> ()) {
-        if image != nil { completion(image); return }
+    func download(completion: @escaping (UIImage?) -> ()) -> StorageDownloadTask? {
+        if image != nil { completion(image); return nil }
         let storageRef = Storage.storage().reference()
         let imageRef = storageRef.child(path)
-        imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+        return imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             guard let data = data else {
                 debugPrint("Item image could not be downloaded")
                 return

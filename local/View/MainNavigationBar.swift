@@ -15,6 +15,7 @@ class MainNavigationBar: UINavigationBar {
     let fontSize: CGFloat = 20
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         customizeView()
     }
     

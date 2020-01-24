@@ -23,7 +23,7 @@ class ItemVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        item.photo.download() { (image) in
+        _ = item.photo.download() { (image) in
             self.itemImageView.image = image
         }
         itemTitleLabel.text = item.title

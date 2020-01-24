@@ -48,7 +48,7 @@ class MessageVC: UIViewController {
     
     func loadHeaderView() {
         itemImageView.layer.cornerRadius = 5
-        item.photo.download() { (image) in
+        _ = item.photo.download() { (image) in
             self.itemImageView.image = image
         }
         itemTitleLabel.text = item.title

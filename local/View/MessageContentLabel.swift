@@ -29,6 +29,7 @@ class MessageContentLabel: UILabel {
     }
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         customizeView()
     }
     

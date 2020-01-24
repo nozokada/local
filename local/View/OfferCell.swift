@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class OfferCell: UITableViewCell {
 
@@ -14,14 +15,17 @@ class OfferCell: UITableViewCell {
     @IBOutlet weak var itemTitleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    var imageDownloadTask: StorageDownloadTask?
+    
     override func awakeFromNib() {
+        super.awakeFromNib()
         customizeView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.itemTitleLabel.text = ""
-        self.itemImageView.image = LOADING_IMAGE
+        imageDownloadTask?.cancel()
+        itemImageView.image = LOADING_IMAGE
     }
     
     func customizeView() {
@@ -30,7 +34,7 @@ class OfferCell: UITableViewCell {
     
     func updateItemData(item: Item) {
         itemTitleLabel.text = item.title
-        item.photo.download() { (image) in
+        imageDownloadTask = item.photo.download() { (image) in
             self.itemImageView.image = image
         }
     }
