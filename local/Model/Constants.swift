@@ -13,7 +13,7 @@ let MAIN_FONT_REGULAR = "AvenirNext-Regular"
 let MAIN_FONT_MEDIUM = "AvenirNext-Medium"
 let MAIN_FONT_BOLD = "AvenirNext-Bold"
 
-let LOADING_IMAGE = UIImage(named: "loading_image")
+let LOADING_IMAGE = UIImage(named: "loadingImage")
 
 let CREATE_ACCOUNT_VIEW_TITLE = "Create your account"
 

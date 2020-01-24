@@ -27,6 +27,10 @@ class OfferVC: UIViewController {
         offersTableView.delegate = self
         
         configureRefreshControl()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         addLoadingSpinner()
         fetchOffers()
     }
@@ -61,10 +65,10 @@ class OfferVC: UIViewController {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let offerType = buyingSelected ? FROM : TO
         DataService.shared.getOffers(type: offerType, userId: userId) { offers, error in
-            if offers.count == 0 {
-                self.reloadTable()
-                return
-            }
+//            if offers.count == 0 {
+//                self.reloadTable()
+//                return
+//            }
             self.offers = offers
             self.reloadTable()
         }

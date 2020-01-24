@@ -10,6 +10,21 @@ import UIKit
 import Firebase
 
 class ProfileVC: UIViewController {
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usernameLabel.text = getDisplayName()
+    }
+    
+    func getDisplayName() -> String? {
+        return Auth.auth().currentUser?.displayName
+    }
 
     @IBAction func signOutButtonTapped(_ sender: Any) {
         do {
@@ -20,7 +35,7 @@ class ProfileVC: UIViewController {
             }
         }
         catch let error as NSError {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
     }
 }

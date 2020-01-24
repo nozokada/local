@@ -24,6 +24,7 @@ class OfferCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        usernameLabel.text = ""
         imageDownloadTask?.cancel()
         itemImageView.image = LOADING_IMAGE
     }
