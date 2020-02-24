@@ -95,7 +95,7 @@
 		D4C8CBDE23C2B9140077ECF6 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D4C8CBE023C5A05B0077ECF6 /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
 		D4C8CBE223C5A2760077ECF6 /* OfferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferVC.swift; sourceTree = "<group>"; };
-		D4FDDD0D23A363510053AE79 /* local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = local.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4FDDD0D23A363510053AE79 /* Local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Local.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FDDD1023A363510053AE79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4FDDD1223A363510053AE79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D4FDDD1423A363510053AE79 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -104,10 +104,10 @@
 		D4FDDD1B23A363510053AE79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4FDDD1E23A363510053AE79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4FDDD2023A363510053AE79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4FDDD2523A363520053AE79 /* localTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = localTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4FDDD2523A363520053AE79 /* LocalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FDDD2923A363520053AE79 /* localTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localTests.swift; sourceTree = "<group>"; };
 		D4FDDD2B23A363520053AE79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4FDDD3023A363520053AE79 /* localUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = localUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4FDDD3023A363520053AE79 /* LocalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FDDD3423A363520053AE79 /* localUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = localUITests.swift; sourceTree = "<group>"; };
 		D4FDDD3623A363520053AE79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4FDDD4223A363D30053AE79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -203,9 +203,9 @@
 		D4FDDD0423A363510053AE79 = {
 			isa = PBXGroup;
 			children = (
-				D4FDDD0F23A363510053AE79 /* local */,
-				D4FDDD2823A363520053AE79 /* localTests */,
-				D4FDDD3323A363520053AE79 /* localUITests */,
+				D4FDDD0F23A363510053AE79 /* Local */,
+				D4FDDD2823A363520053AE79 /* LocalTests */,
+				D4FDDD3323A363520053AE79 /* LocalUITests */,
 				D4FDDD0E23A363510053AE79 /* Products */,
 				F54643725FB599C7739FFC7C /* Pods */,
 				09D6DA080583C39B3BD19911 /* Frameworks */,
@@ -215,14 +215,14 @@
 		D4FDDD0E23A363510053AE79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4FDDD0D23A363510053AE79 /* local.app */,
-				D4FDDD2523A363520053AE79 /* localTests.xctest */,
-				D4FDDD3023A363520053AE79 /* localUITests.xctest */,
+				D4FDDD0D23A363510053AE79 /* Local.app */,
+				D4FDDD2523A363520053AE79 /* LocalTests.xctest */,
+				D4FDDD3023A363520053AE79 /* LocalUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D4FDDD0F23A363510053AE79 /* local */ = {
+		D4FDDD0F23A363510053AE79 /* Local */ = {
 			isa = PBXGroup;
 			children = (
 				D4FDDD1023A363510053AE79 /* AppDelegate.swift */,
@@ -236,25 +236,25 @@
 				D4FDDD2023A363510053AE79 /* Info.plist */,
 				D4FDDD4223A363D30053AE79 /* GoogleService-Info.plist */,
 			);
-			path = local;
+			path = Local;
 			sourceTree = "<group>";
 		};
-		D4FDDD2823A363520053AE79 /* localTests */ = {
+		D4FDDD2823A363520053AE79 /* LocalTests */ = {
 			isa = PBXGroup;
 			children = (
 				D4FDDD2923A363520053AE79 /* localTests.swift */,
 				D4FDDD2B23A363520053AE79 /* Info.plist */,
 			);
-			path = localTests;
+			path = LocalTests;
 			sourceTree = "<group>";
 		};
-		D4FDDD3323A363520053AE79 /* localUITests */ = {
+		D4FDDD3323A363520053AE79 /* LocalUITests */ = {
 			isa = PBXGroup;
 			children = (
 				D4FDDD3423A363520053AE79 /* localUITests.swift */,
 				D4FDDD3623A363520053AE79 /* Info.plist */,
 			);
-			path = localUITests;
+			path = LocalUITests;
 			sourceTree = "<group>";
 		};
 		F54643725FB599C7739FFC7C /* Pods */ = {
@@ -273,9 +273,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4FDDD0C23A363510053AE79 /* local */ = {
+		D4FDDD0C23A363510053AE79 /* Local */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4FDDD3923A363520053AE79 /* Build configuration list for PBXNativeTarget "local" */;
+			buildConfigurationList = D4FDDD3923A363520053AE79 /* Build configuration list for PBXNativeTarget "Local" */;
 			buildPhases = (
 				2EA43B06D6AD8E80DD098DFC /* [CP] Check Pods Manifest.lock */,
 				D4FDDD0923A363510053AE79 /* Sources */,
@@ -287,14 +287,14 @@
 			);
 			dependencies = (
 			);
-			name = local;
+			name = Local;
 			productName = local;
-			productReference = D4FDDD0D23A363510053AE79 /* local.app */;
+			productReference = D4FDDD0D23A363510053AE79 /* Local.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4FDDD2423A363520053AE79 /* localTests */ = {
+		D4FDDD2423A363520053AE79 /* LocalTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4FDDD3C23A363520053AE79 /* Build configuration list for PBXNativeTarget "localTests" */;
+			buildConfigurationList = D4FDDD3C23A363520053AE79 /* Build configuration list for PBXNativeTarget "LocalTests" */;
 			buildPhases = (
 				07D2DA2FAC7582B213F61641 /* [CP] Check Pods Manifest.lock */,
 				D4FDDD2123A363520053AE79 /* Sources */,
@@ -306,14 +306,14 @@
 			dependencies = (
 				D4FDDD2723A363520053AE79 /* PBXTargetDependency */,
 			);
-			name = localTests;
+			name = LocalTests;
 			productName = localTests;
-			productReference = D4FDDD2523A363520053AE79 /* localTests.xctest */;
+			productReference = D4FDDD2523A363520053AE79 /* LocalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D4FDDD2F23A363520053AE79 /* localUITests */ = {
+		D4FDDD2F23A363520053AE79 /* LocalUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4FDDD3F23A363520053AE79 /* Build configuration list for PBXNativeTarget "localUITests" */;
+			buildConfigurationList = D4FDDD3F23A363520053AE79 /* Build configuration list for PBXNativeTarget "LocalUITests" */;
 			buildPhases = (
 				E61AF025BB7056A18955D567 /* [CP] Check Pods Manifest.lock */,
 				D4FDDD2C23A363520053AE79 /* Sources */,
@@ -326,9 +326,9 @@
 			dependencies = (
 				D4FDDD3223A363520053AE79 /* PBXTargetDependency */,
 			);
-			name = localUITests;
+			name = LocalUITests;
 			productName = localUITests;
-			productReference = D4FDDD3023A363520053AE79 /* localUITests.xctest */;
+			productReference = D4FDDD3023A363520053AE79 /* LocalUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -354,7 +354,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "local" */;
+			buildConfigurationList = D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "Local" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -367,9 +367,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4FDDD0C23A363510053AE79 /* local */,
-				D4FDDD2423A363520053AE79 /* localTests */,
-				D4FDDD2F23A363520053AE79 /* localUITests */,
+				D4FDDD0C23A363510053AE79 /* Local */,
+				D4FDDD2423A363520053AE79 /* LocalTests */,
+				D4FDDD2F23A363520053AE79 /* LocalUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -562,12 +562,12 @@
 /* Begin PBXTargetDependency section */
 		D4FDDD2723A363520053AE79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4FDDD0C23A363510053AE79 /* local */;
+			target = D4FDDD0C23A363510053AE79 /* Local */;
 			targetProxy = D4FDDD2623A363520053AE79 /* PBXContainerItemProxy */;
 		};
 		D4FDDD3223A363520053AE79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4FDDD0C23A363510053AE79 /* local */;
+			target = D4FDDD0C23A363510053AE79 /* Local */;
 			targetProxy = D4FDDD3123A363520053AE79 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -721,7 +721,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rir.local;
-				PRODUCT_NAME = local;
+				PRODUCT_NAME = Local;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -742,7 +742,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rir.local;
-				PRODUCT_NAME = local;
+				PRODUCT_NAME = Local;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -767,7 +767,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/local.app/local";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Local.app/Local";
 			};
 			name = Debug;
 		};
@@ -790,7 +790,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/local.app/local";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Local.app/Local";
 			};
 			name = Release;
 		};
@@ -839,7 +839,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "local" */ = {
+		D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "Local" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4FDDD3723A363520053AE79 /* Debug */,
@@ -848,7 +848,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4FDDD3923A363520053AE79 /* Build configuration list for PBXNativeTarget "local" */ = {
+		D4FDDD3923A363520053AE79 /* Build configuration list for PBXNativeTarget "Local" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4FDDD3A23A363520053AE79 /* Debug */,
@@ -857,7 +857,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4FDDD3C23A363520053AE79 /* Build configuration list for PBXNativeTarget "localTests" */ = {
+		D4FDDD3C23A363520053AE79 /* Build configuration list for PBXNativeTarget "LocalTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4FDDD3D23A363520053AE79 /* Debug */,
@@ -866,7 +866,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4FDDD3F23A363520053AE79 /* Build configuration list for PBXNativeTarget "localUITests" */ = {
+		D4FDDD3F23A363520053AE79 /* Build configuration list for PBXNativeTarget "LocalUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4FDDD4023A363520053AE79 /* Debug */,
