@@ -95,7 +95,7 @@
 		D4C8CBDE23C2B9140077ECF6 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D4C8CBE023C5A05B0077ECF6 /* OfferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
 		D4C8CBE223C5A2760077ECF6 /* OfferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferVC.swift; sourceTree = "<group>"; };
-		D4FDDD0D23A363510053AE79 /* Local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Local.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4FDDD0D23A363510053AE79 /* local.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = local.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FDDD1023A363510053AE79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4FDDD1223A363510053AE79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D4FDDD1423A363510053AE79 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		D4FDDD0E23A363510053AE79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4FDDD0D23A363510053AE79 /* Local.app */,
+				D4FDDD0D23A363510053AE79 /* local.app */,
 				D4FDDD2523A363520053AE79 /* localTests.xctest */,
 				D4FDDD3023A363520053AE79 /* localUITests.xctest */,
 			);
@@ -289,7 +289,7 @@
 			);
 			name = local;
 			productName = local;
-			productReference = D4FDDD0D23A363510053AE79 /* Local.app */;
+			productReference = D4FDDD0D23A363510053AE79 /* local.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D4FDDD2423A363520053AE79 /* localTests */ = {
@@ -354,7 +354,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "Local" */;
+			buildConfigurationList = D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "local" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -712,7 +712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = EPF2DMU2WE;
 				INFOPLIST_FILE = local/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -721,7 +721,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rir.local;
-				PRODUCT_NAME = Local;
+				PRODUCT_NAME = local;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -733,7 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = EPF2DMU2WE;
 				INFOPLIST_FILE = local/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -742,7 +742,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rir.local;
-				PRODUCT_NAME = Local;
+				PRODUCT_NAME = local;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -839,7 +839,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "Local" */ = {
+		D4FDDD0823A363510053AE79 /* Build configuration list for PBXProject "local" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4FDDD3723A363520053AE79 /* Debug */,
